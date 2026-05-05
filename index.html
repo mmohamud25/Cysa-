@@ -88,12 +88,12 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 #toast-wrap{position:fixed;top:20px;right:20px;z-index:9999;display:flex;flex-direction:column;gap:8px;pointer-events:none}
 .toast-msg{background:var(--tx);color:var(--bg);padding:10px 16px;border-radius:10px;font-size:13px;font-weight:600;animation:slideIn .3s ease;pointer-events:none}
 @keyframes slideIn{from{transform:translateX(100px);opacity:0}to{transform:translateX(0);opacity:1}}
-.bnav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:1px solid var(--bd);padding:8px;z-index:100;grid-template-columns:repeat(6,1fr)}
-.bnav-btn{display:flex;flex-direction:column;align-items:center;gap:2px;padding:6px;border:none;background:none;cursor:pointer;font-size:10px;font-weight:600;color:var(--tx3);font-family:inherit}
+.bnav{display:none;position:fixed;bottom:0;left:0;right:0;background:var(--bg2);border-top:1px solid var(--bd);padding:6px 4px;z-index:100;grid-template-columns:repeat(6,1fr)}
+.bnav-btn{display:flex;flex-direction:column;align-items:center;gap:1px;padding:4px 2px;border:none;background:none;cursor:pointer;font-size:9px;font-weight:600;color:var(--tx3);font-family:inherit}
 .bnav-btn.active{color:var(--cy)}
 .row{display:flex;align-items:center;gap:8px}
 .exam-bar{position:sticky;top:0;z-index:50;background:var(--bg2);border-bottom:1px solid var(--bd);padding:10px 20px}
-@media(max-width:768px){.rail{display:none}.main{margin-left:0;padding-bottom:70px}.bnav{display:grid}.stats-grid{grid-template-columns:repeat(2,1fr)}.pg{padding:14px}}
+@media(max-width:768px){.rail{display:none}.main{margin-left:0;padding-bottom:70px}.bnav{display:grid}.stats-grid{grid-template-columns:repeat(2,1fr);gap:10px}.pg{padding:14px}.stitle{font-size:20px}}
 @media(max-width:480px){.btn{padding:8px 12px;font-size:12px}}
 </style>
 </head>
@@ -1151,7 +1151,7 @@ function renderHome(){
       "</div>" +
       "<div style='display:flex;align-items:center;gap:10px'>" +
         "<div class='prog-bar' style='flex:1'><div class='prog-fill' style='width:"+(sc||0)+"%;background:"+DOMAIN_COLORS[d]+"'></div></div>" +
-        "<div style='font-size:12px;color:var(--tx3)'>"+(sc!==null?sc+"%":"—")+"</div>" +
+        "<div style='font-size:12px;color:var(--tx3)'>"+(sc!==null?"Accuracy: "+sc+"%":"—")+"</div>" +
         "<div style='font-size:11px;color:var(--tx4)'>"+qcnt+"q</div>" +
       "</div>" +
     "</div>";
@@ -1350,7 +1350,7 @@ function renderExamTutorial(size){
         "Think like a <b style='color:var(--tx)'>SOC analyst</b>, not a student — questions are scenario-based.<br>" +
         "For incident response questions: <b style='color:var(--tx)'>contain FIRST</b>, then investigate.<br>" +
         "For vulnerability management: <b style='color:var(--tx)'>context beats CVSS score</b> every time.<br>" +
-        "Performance-based questions appear first — don't skip them." +
+        "Performance-based questions often appear early — don't skip them." +
       "</div>" +
     "</div>" +
     "<div class='card' style='margin-bottom:20px;padding:18px'>" +
@@ -1381,7 +1381,7 @@ function renderExamHome(){
   }
   render("<div class='pg'><h2 class='stitle'>Exam Simulator</h2>" +
     "<div class='card2' style='margin-bottom:20px'>" +
-      "<div style='font-family:Syne,sans-serif;font-size:20px;font-weight:800;margin-bottom:8px'>🔍 CySA+ CS0-003</div>" +
+      "<div style='font-family:Syne,sans-serif;font-size:20px;font-weight:800;margin-bottom:8px;color:var(--tx)'>🔍 CySA+ CS0-003</div>" +
       "<div style='font-size:13px;color:var(--tx2);line-height:1.8'>Max 85 questions · 165 minutes · Pass: 750/900<br>Domain weights match official CompTIA objectives</div>" +
     "</div>" +
     "<div style='display:grid;grid-template-columns:1fr 1fr;gap:12px;margin-bottom:12px'>" +
