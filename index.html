@@ -90,6 +90,10 @@ body{font-family:'DM Sans',sans-serif;background:var(--bg);color:var(--tx);min-h
 @keyframes streakPulse{0%,100%{transform:scale(1)}50%{transform:scale(1.15)}}
 .streak-fire{display:inline-block;animation:streakPulse 1.4s ease-in-out infinite}
 .radar-wrap{position:relative;display:flex;align-items:center;justify-content:center;padding:8px 0}
+#main ul,#main ol{margin:6px 0 12px 0;padding-left:20px}
+#main li{margin-bottom:6px;line-height:1.6}
+#main p{margin:0 0 10px 0}
+#main p:last-child{margin-bottom:0}
 button:focus-visible,
 [role="button"]:focus-visible,
 [tabindex]:focus-visible,
@@ -132,7 +136,7 @@ input:focus-visible{outline:2px solid var(--cy);outline-offset:2px;border-radius
       <button class="nav-btn" aria-label="PBQ Simulations" onclick="setTab('pbq')"><span class="nav-icon">🔧</span><span class="nav-label">PBQ Sims</span></button>
       <button class="nav-btn" aria-label="Exam Simulator" onclick="setTab('exam')"><span class="nav-icon">📝</span><span class="nav-label">Exam Simulator</span></button>
       <button class="nav-btn" aria-label="Flashcards" onclick="setTab('cards')"><span class="nav-icon">🃏</span><span class="nav-label">Flashcards</span></button>
-      <button class="nav-btn" aria-label="Domain Guide" onclick="setTab('learn')"><span class="nav-icon">📖</span><span class="nav-label">Domains</span></button>
+      <button class="nav-btn" aria-label="Learning Mode" onclick="setTab('learn')"><span class="nav-icon">📘</span><span class="nav-label">Learning Mode</span></button>
     </div>
     <div class="rail-footer">
       <button class="nav-btn" onclick="toggleTheme()"><span class="nav-icon">🌙</span><span id="theme-lbl" class="nav-label">Dark Mode</span></button>
@@ -147,10 +151,11 @@ input:focus-visible{outline:2px solid var(--cy);outline-offset:2px;border-radius
   <button class="bnav-btn" aria-label="PBQ" onclick="setTab('pbq')">🔧<span>PBQ</span></button>
   <button class="bnav-btn" aria-label="Exam" onclick="setTab('exam')">📝<span>Exam</span></button>
   <button class="bnav-btn" aria-label="Cards" onclick="setTab('cards')">🃏<span>Cards</span></button>
-  <button class="bnav-btn" aria-label="Domains" onclick="setTab('learn')">📖<span>Domains</span></button>
+  <button class="bnav-btn" aria-label="Learning Mode" onclick="setTab('learn')">📘<span>Learn</span></button>
 </nav>
 <script>
 var QZ=[];
+var DOMAIN_CONCEPTS={};
 
 // ── MULTI-SELECT QUESTIONS (choose two, no partial credit) ──────────────────
 var MULTI_QZ=[];
@@ -159,12 +164,7 @@ var MULTI_QZ=[];
 var FLASH_CARDS=[];
 
 // ── DOMAIN GUIDE ────────────────────────────────────────────────────────────
-var DOMAIN_GUIDE={
-1:"\x3Ch3\x3ESecurity Operations (33%)\x3C/h3\x3E\x3Cp\x3E\x3Cb\x3ELog Analysis:\x3C/b\x3E Windows Event IDs — 4624 (logon success), 4625 (logon fail), 4688 (process create), 4698 (scheduled task created), 4720 (account created). Sysmon Event ID 1 (process create with command line), 3 (network connection), 7 (image load), 10 (process access to LSASS).\x3C/p\x3E\x3Cp\x3E\x3Cb\x3ENetwork Monitoring:\x3C/b\x3E Beaconing = regular intervals to C2. DGA = flood of NXDOMAIN for random domains. DNS tunneling = long subdomain labels, TXT queries, high frequency to one domain. JA3 = TLS fingerprinting to identify malicious client implementations.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EThreat Hunting:\x3C/b\x3E Hypothesis-driven — form a specific theory based on threat intel then test it. Data sources: EDR telemetry, SIEM logs, network captures. Key behaviors to hunt: LOLBIN use (certutil, wscript, mshta), WMI persistence, scheduled tasks, unusual parent-child process relationships.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EMITRE ATT&CK Tactics:\x3C/b\x3E Reconnaissance → Resource Development → Initial Access → Execution → Persistence → Privilege Escalation → Defense Evasion → Credential Access → Discovery → Lateral Movement → Collection → Command & Control → Exfiltration → Impact.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EKey Tools:\x3C/b\x3E SIEM (correlation, alerting), EDR (endpoint behavior), NDR (network behavior), UEBA (user anomalies), SOAR (automation), Wireshark (PCAP analysis), Zeek/Bro (network logging).\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EThreat Actor Types:\x3C/b\x3E Nation-state APT (zero-days, custom malware, long dwell time, specific targets), Cybercriminal (ransomware, financial motivation), Hacktivist (ideology, DDoS, defacement), Insider (legitimate access, motivation varies), Script kiddie (commodity tools, opportunistic).\x3C/p\x3E",
-2:"\x3Ch3\x3EVulnerability Management (30%)\x3C/h3\x3E\x3Cp\x3E\x3Cb\x3ECVSS v3 Metrics:\x3C/b\x3E Attack Vector (N/A/L/P), Attack Complexity (L/H), Privileges Required (N/L/H), User Interaction (N/R), Scope (U/C), Confidentiality/Integrity/Availability Impact (N/L/H). Network + None + None + None + Changed = maximum base score.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EPrioritization Framework:\x3C/b\x3E CVSS (technical severity) + EPSS (exploitation probability) + CISA KEV (confirmed exploitation) + Asset criticality + Exposure (internet-facing?) + Existing controls = actual risk priority. Never use CVSS alone.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EScanning Types:\x3C/b\x3E Credentialed/authenticated scans (most thorough — examines actual patch state), unauthenticated scans (attacker perspective), DAST (web application testing), SAST (source code analysis), SCA (dependency vulnerability scanning), CSPM (cloud misconfiguration scanning).\x3C/p\x3E\x3Cp\x3E\x3Cb\x3ERisk Treatment:\x3C/b\x3E Remediate (patch/fix), Mitigate with compensating controls (WAF, network isolation, monitoring), Accept (document formal risk acceptance with owner signature), Transfer (cyber insurance). ALL exceptions require documentation with business justification, compensating controls, risk owner, and review date.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EKey Regulations:\x3C/b\x3E PCI DSS Req 11.3: quarterly internal scans + quarterly ASV external scans. HIPAA: periodic risk assessments. GDPR: appropriate technical measures (vulnerability management implied). NIST 800-53 RA controls: risk assessment requirements.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EVulnerability Lifecycle:\x3C/b\x3E Discovery (scan/report) → Validation (confirm real vs false positive) → Prioritization (risk-based) → Remediation (patch/mitigate) → Verification (rescan to confirm fix) → Reporting (metrics and trending).\x3C/p\x3E",
-3:"\x3Ch3\x3EIncident Response & Management (20%)\x3C/h3\x3E\x3Cp\x3E\x3Cb\x3ENIST 800-61 Phases:\x3C/b\x3E 1. Preparation (plan, tools, training, playbooks, tabletops). 2. Detection & Analysis (validate, classify, scope). 3. Containment, Eradication, Recovery (isolate, remove, restore). 4. Post-Incident Activity (lessons learned, improvements).\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EOrder of Volatility:\x3C/b\x3E CPU registers → RAM → Network connections → Running processes → Disk → Removable media → Backups. Collect most volatile FIRST — RAM lost on reboot. Critical in incidents with memory-resident malware.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EAttack Frameworks:\x3C/b\x3E Kill Chain (7 linear phases, good for understanding attack progression). MITRE ATT&CK (comprehensive, technique-level, based on real attacks, best for detection and hunting). Diamond Model (adversary/capability/infrastructure/victim — good for attribution and intelligence).\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EContainment Strategies:\x3C/b\x3E Network isolation (disconnect from network, keep powered on to preserve RAM). Forensic image before any changes. Full shutdown only if no forensic collection is needed. Never reimage before evidence collection. Verify backups are clean before restore.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EKey Forensic Artifacts:\x3C/b\x3E RAM (running processes, network state, decrypted data, injected code), NTFS MFT ($MFT records all file activity), Windows Event Logs (security, system, application, Sysmon), Prefetch/Shimcache (execution history), Registry (persistence, user activity), Browser artifacts (history, downloads, cookies).\x3C/p\x3E\x3Cp\x3E\x3Cb\x3ELegal Considerations:\x3C/b\x3E Legal hold (preserve ESI when litigation anticipated). Chain of custody (document all evidence handling). Forensically sound (hash before/after to prove integrity). Attorney-client privilege (involve legal counsel early). Mandatory breach notification (GDPR 72hrs, state laws vary).\x3C/p\x3E",
-4:"\x3Ch3\x3EReporting & Communication (17%)\x3C/h3\x3E\x3Cp\x3E\x3Cb\x3EAudience-Appropriate Communication:\x3C/b\x3E Executives/Board: business risk, financial impact, regulatory exposure, strategic recommendations — no CVE numbers. IT/Security: technical details, reproduction steps, remediation instructions. Legal: breach notification obligations, evidence preservation. Business units: process changes affecting operations. Regulators: required format and timeline per applicable law.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EKey Metrics:\x3C/b\x3E MTTD (Mean Time to Detect — from compromise to awareness). MTTR (Mean Time to Respond/Remediate). SLA compliance rate (% of vulnerabilities patched within defined timeline). Risk exposure trend (are critical unpatched vulnerabilities increasing or decreasing?). False positive rate (detection quality indicator).\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EResponsible Disclosure:\x3C/b\x3E Notify vendor privately. Allow reasonable remediation time (90-day standard). Coordinate public disclosure with vendor when patch available. Document the timeline. Full public disclosure after deadline regardless of patch status. Protects all users by giving vendors time to fix before attackers know.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EBreach Notification:\x3C/b\x3E GDPR Article 33: supervisory authority within 72 hours of awareness. Article 34: affected individuals when high risk. HIPAA: individuals within 60 days, HHS notification requirements. US state laws: vary 30-90 days. Involve legal counsel to determine applicable requirements before drafting notification.\x3C/p\x3E\x3Cp\x3E\x3Cb\x3EReport Types:\x3C/b\x3E Vulnerability scan report (technical findings for remediation teams), Executive summary (risk posture for leadership), Gap analysis (current vs target maturity), Lessons learned (post-incident improvements), Metrics/dashboard (ongoing operational status), Compliance report (control effectiveness against framework).\x3C/p\x3E"
-};
+
 
 
 // ── CySA+ STUDY HUB APP ────────────────────────────────────────────────────
@@ -1141,36 +1141,129 @@ window.nextCard=function(){_fcIdx++;showCard();};
 window.prevCard=function(){if(_fcIdx>0){_fcIdx--;showCard();}};
 
 // ── LEARN ─────────────────────────────────────────────────────────────────────
+function getReviewedSet(){
+  if(!S.stats.reviewedConcepts)S.stats.reviewedConcepts={};
+  return S.stats.reviewedConcepts;
+}
+function conceptKey(d,i){return d+":"+i;}
+function toggleConceptReviewed(d,i){
+  var rv=getReviewedSet();
+  var key=conceptKey(d,i);
+  if(rv[key])delete rv[key];else rv[key]=true;
+  save();
+  renderDomainGuide(d);
+}
+window.toggleConceptReviewed=toggleConceptReviewed;
+window.selectConceptQuizAns=function(stateKey,optIdx){
+  if(!S.conceptQuiz)S.conceptQuiz={};
+  S.conceptQuiz[stateKey]=optIdx;
+  var d=parseInt(stateKey.split("-")[0]);
+  renderDomainGuide(d);
+};
+
 function renderLearn(){
+  var rv=getReviewedSet();
   var items="";
   for(var d=1;d<=4;d++){
     var qcnt=QZ.filter(function(q){return q.d==d;}).length;
-    items+="<div class='card' style='border-left:3px solid "+DOMAIN_COLORS[d]+";cursor:pointer;margin-bottom:10px' onclick='renderDomainGuide("+d+")'>" +
-      "<div style='display:flex;align-items:center;justify-content:space-between'>" +
+    var concepts=DOMAIN_CONCEPTS[d]||[];
+    var doneCount=0;
+    for(var ci=0;ci<concepts.length;ci++){if(rv[conceptKey(d,ci)])doneCount++;}
+    var pct=concepts.length>0?Math.round(doneCount/concepts.length*100):0;
+    items+="<div class='card fade-in-up' style='border-left:3px solid "+DOMAIN_COLORS[d]+";cursor:pointer;margin-bottom:10px' onclick='renderDomainGuide("+d+")'>" +
+      "<div style='display:flex;align-items:center;justify-content:space-between;margin-bottom:8px'>" +
         "<div><div style='font-weight:700'>"+DOMAIN_NAMES[d]+"</div>" +
-          "<div style='font-size:12px;color:var(--tx3);margin-top:3px'>"+DOMAIN_WEIGHTS[d]+"% of exam · "+qcnt+" questions</div>" +
+          "<div style='font-size:12px;color:var(--tx3);margin-top:3px'>"+DOMAIN_WEIGHTS[d]+"% of exam · "+concepts.length+" concepts · "+qcnt+" questions</div>" +
         "</div><span style='color:var(--tx4);font-size:18px'>&#8594;</span>" +
-      "</div></div>";
+      "</div>" +
+      "<div class='prog-bar'><div class='prog-fill' data-w='"+pct+"' style='width:0%;background:"+DOMAIN_COLORS[d]+"'></div></div>" +
+      "<div style='font-size:11px;color:var(--tx4);margin-top:4px;font-family:var(--mono)'>"+doneCount+"/"+concepts.length+" reviewed</div>" +
+    "</div>";
   }
-  render("<div class='pg'><h2 class='stitle'>Domain Guide</h2>"+items+"</div>");
+  render("<div class='pg'><h2 class='stitle'>Learning Mode</h2>" +
+    "<div style='font-size:13px;color:var(--tx3);margin-bottom:16px'>Study each domain's key concepts before drilling questions. Mark concepts reviewed as you go.</div>" +
+    items+"</div>");
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      var fills=document.querySelectorAll(".prog-fill");
+      for(var i=0;i<fills.length;i++){fills[i].style.width=fills[i].getAttribute("data-w")+"%";}
+    });
+  });
 }
 window.renderLearn=renderLearn;
 
 function renderDomainGuide(d){
+  var rv=getReviewedSet();
+  var concepts=DOMAIN_CONCEPTS[d]||[];
+  var doneCount=0;
+  for(var ci=0;ci<concepts.length;ci++){if(rv[conceptKey(d,ci)])doneCount++;}
+  var pct=concepts.length>0?Math.round(doneCount/concepts.length*100):0;
   var prevBtn=d>1?"<button class='btn btn-s' onclick='renderDomainGuide("+(d-1)+")'>&#8592; D"+(d-1)+"</button>":"";
   var nextBtn=d<4?"<button class='btn btn-s' onclick='renderDomainGuide("+(d+1)+")'>D"+(d+1)+" &#8594;</button>":"";
+  if(!S.conceptQuiz)S.conceptQuiz={};
+  var conceptCards="";
+  for(var i=0;i<concepts.length;i++){
+    var c=concepts[i];
+    var key=conceptKey(d,i);
+    var done=!!rv[key];
+    conceptCards+="<div class='card' style='margin-bottom:10px;border-left:3px solid "+(done?"var(--gn)":DOMAIN_COLORS[d])+"'>" +
+      "<div style='display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:8px'>" +
+        "<div style='font-weight:700;font-size:14px;color:var(--tx)'>"+c.title+"</div>" +
+        "<button onclick='toggleConceptReviewed("+d+","+i+")' style='flex-shrink:0;background:"+(done?"var(--gn0)":"var(--bg3)")+";border:1px solid "+(done?"var(--gn)":"var(--bd2)")+";color:"+(done?"var(--gn)":"var(--tx3)")+";border-radius:6px;padding:4px 10px;font-size:11px;font-family:var(--mono);cursor:pointer;white-space:nowrap'>"+(done?"✓ Reviewed":"Mark Reviewed")+"</button>" +
+      "</div>" +
+      "<div style='font-size:13px;line-height:1.7;color:var(--tx2)'>"+c.content+"</div>";
+    if(c.example){
+      conceptCards+="<div style='margin-top:12px;padding:12px 14px;background:var(--ye0);border-left:3px solid var(--ye);border-radius:6px'>" +
+        "<div style='font-size:10px;font-family:var(--mono);color:var(--ye);letter-spacing:.5px;margin-bottom:4px'>🌍 REAL-WORLD EXAMPLE</div>" +
+        "<div style='font-size:13px;line-height:1.6;color:var(--tx2)'>"+c.example+"</div>" +
+      "</div>";
+    }
+    if(c.quiz&&c.quiz.length){
+      conceptCards+="<div style='margin-top:12px;padding:12px 14px;background:var(--bg3);border-radius:6px'>" +
+        "<div style='font-size:10px;font-family:var(--mono);color:var(--cy);letter-spacing:.5px;margin-bottom:10px'>✅ CHECK YOUR UNDERSTANDING</div>";
+      for(var qi=0;qi<c.quiz.length;qi++){
+        var qq=c.quiz[qi];
+        var stateKey=d+"-"+i+"-"+qi;
+        var selIdx=S.conceptQuiz[stateKey];
+        var checked=selIdx!==undefined;
+        conceptCards+="<div style='margin-bottom:"+(qi<c.quiz.length-1?"16px":"0")+"'>" +
+          "<div style='font-size:13px;font-weight:600;color:var(--tx);margin-bottom:8px'>"+(qi+1)+". "+qq.q+"</div>";
+        for(var oi=0;oi<qq.o.length;oi++){
+          var isC=oi===qq.a,isSel=selIdx===oi,isW=checked&&isSel&&!isC;
+          var rowCls=checked?(isC?"hit":isW?"miss":"dim"):"";
+          conceptCards+="<button class='ans "+rowCls+"' style='font-size:12px;padding:8px 12px;margin-bottom:5px' "+(checked?"":"onclick='selectConceptQuizAns(\""+stateKey+"\","+oi+")'")+">"+
+            "<span class='ltr' style='width:20px;height:20px;font-size:10px'>"+"ABCD"[oi]+"</span>"+qq.o[oi]+"</button>";
+        }
+        if(checked){
+          conceptCards+="<div style='font-size:12px;color:var(--tx3);margin-top:4px;padding:8px 10px;background:var(--bg2);border-radius:6px'>"+qq.e+"</div>";
+        }
+        conceptCards+="</div>";
+      }
+      conceptCards+="</div>";
+    }
+    conceptCards+="</div>";
+  }
   render("<div class='pg'>" +
     "<button class='btn btn-s' onclick='renderLearn()' style='margin-bottom:16px'>&#8592; Back to Domains</button>" +
-    "<div class='card' style='border-left:3px solid "+DOMAIN_COLORS[d]+"'>" +
-      "<div style='background:"+DOMAIN_BG[d]+";border-radius:8px;padding:10px 14px;margin-bottom:16px;display:inline-block'>" +
-        "<span style='color:"+DOMAIN_COLORS[d]+";font-weight:700;font-size:13px'>Domain "+d+" · "+DOMAIN_WEIGHTS[d]+"% of exam</span>" +
+    "<div class='card2' style='margin-bottom:16px'>" +
+      "<div style='display:flex;align-items:center;justify-content:space-between;margin-bottom:10px'>" +
+        "<div><span style='color:"+DOMAIN_COLORS[d]+";font-weight:700;font-size:15px'>"+DOMAIN_NAMES[d]+"</span>" +
+        "<div style='font-size:12px;color:var(--tx3);margin-top:2px'>Domain "+d+" · "+DOMAIN_WEIGHTS[d]+"% of exam</div></div>" +
+        "<div style='font-family:var(--mono);font-size:13px;color:var(--tx3)'>"+doneCount+"/"+concepts.length+"</div>" +
       "</div>" +
-      "<div style='font-size:14px;line-height:1.8;color:var(--tx2)'>"+DOMAIN_GUIDE[d]+"</div>" +
+      "<div class='prog-bar'><div class='prog-fill' data-w='"+pct+"' style='width:0%;background:"+DOMAIN_COLORS[d]+"'></div></div>" +
     "</div>" +
-    "<div style='margin-top:16px;display:flex;gap:10px'>" +
+    conceptCards +
+    "<div style='margin-top:16px;display:flex;gap:10px;flex-wrap:wrap'>" +
       "<button class='btn btn-p' onclick='startQuiz("+d+")'>Practice D"+d+" &#8594;</button>" +
       prevBtn+nextBtn+
     "</div></div>");
+  requestAnimationFrame(function(){
+    requestAnimationFrame(function(){
+      var fills=document.querySelectorAll(".prog-fill");
+      for(var i=0;i<fills.length;i++){fills[i].style.width=fills[i].getAttribute("data-w")+"%";}
+    });
+  });
 }
 window.renderDomainGuide=renderDomainGuide;
 
@@ -1201,7 +1294,7 @@ function loadDataAndInit(){
     if(!r.ok)throw new Error("HTTP "+r.status);
     return r.json();
   }).then(function(data){
-    QZ=data.QZ;MULTI_QZ=data.MULTI_QZ;PBQ_SCENARIOS=data.PBQ_SCENARIOS;FLASH_CARDS=data.FLASH_CARDS;
+    QZ=data.QZ;MULTI_QZ=data.MULTI_QZ;PBQ_SCENARIOS=data.PBQ_SCENARIOS;FLASH_CARDS=data.FLASH_CARDS;DOMAIN_CONCEPTS=data.DOMAIN_CONCEPTS;
     initApp();
   }).catch(function(err){
     if(mainEl)mainEl.innerHTML="<div class='pg' style='text-align:center;padding:60px 20px'>" +
